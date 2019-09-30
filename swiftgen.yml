@@ -1,0 +1,29 @@
+strings:
+    inputs:
+        - Submodules/Core/Passepartout/Resources/en.lproj/Core.strings
+        - Passepartout-macOS/Global/en.lproj/App.strings
+    outputs:
+        - templateName: structured-swift4
+          output: Passepartout-macOS/Global/SwiftGen+Strings.swift
+
+ib:
+    inputs:
+        #- Passepartout-macOS/Base.lproj/About.storyboard
+        - Passepartout-macOS/Base.lproj/Main.storyboard
+        - Passepartout-macOS/Base.lproj/Preferences.storyboard
+        - Passepartout-macOS/Base.lproj/Service.storyboard
+        #- Passepartout-macOS/Base.lproj/Shortcuts.storyboard
+    outputs:
+        - templateName: scenes-swift4
+          output: Passepartout-macOS/Global/SwiftGen+Scenes.swift
+        - templateName: segues-swift4
+          output: Passepartout-macOS/Global/SwiftGen+Segues.swift
+
+xcassets:
+    inputs:
+        - Passepartout-macOS/Assets.xcassets
+        - Passepartout-macOS/Flags.xcassets
+        - Passepartout-macOS/Providers.xcassets
+    outputs:
+        - templateName: swift4
+          output: Passepartout-macOS/Global/SwiftGen+Assets.swift

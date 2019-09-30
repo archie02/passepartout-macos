@@ -1,0 +1,26 @@
+source 'https://github.com/cocoapods/specs.git'
+platform :osx, '10.12'
+use_frameworks!
+
+load 'Podfile.include'
+
+$tunnelkit_name = 'TunnelKit'
+$tunnelkit_specs = ['Protocols/OpenVPN', 'Extra/LZO']
+
+def shared_pods
+    pod_version $tunnelkit_name, $tunnelkit_specs, '~> 2.0.5'
+    #pod_git $tunnelkit_name, $tunnelkit_specs, 'd815f52'
+    #pod_path $tunnelkit_name, $tunnelkit_specs, '..'
+    pod 'SSZipArchive'
+end
+
+target 'PassepartoutCore-macOS' do
+    shared_pods
+end
+
+target 'Passepartout-macOS' do
+    pod 'AppCenter'
+end
+target 'Passepartout-macOS-Tunnel' do
+    shared_pods
+end
