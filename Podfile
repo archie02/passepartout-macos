@@ -14,7 +14,7 @@ def shared_pods
     pod 'SSZipArchive'
 
     for spec in ['InApp', 'Misc', 'Persistence', 'Reviewer'] do
-        pod "Convenience/#{spec}", :git => 'https://github.com/keeshux/convenience', :commit => '5b53cb1'
+        pod "Convenience/#{spec}", :git => 'https://github.com/keeshux/convenience', :commit => 'b990a8c'
     end
 end
 

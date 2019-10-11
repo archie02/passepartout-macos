@@ -332,7 +332,8 @@ class StatusMenu: NSObject {
     }
 
     @objc private func writeReview() {
-        Reviewer.shared.requestReview(appStoreId: AppConstants.App.appStoreId, force: true)
+        let url = Reviewer.urlForReview(withAppId: AppConstants.App.appStoreId)
+        NSWorkspace.shared.open(url)
     }
     
     @objc private func showDonations() {
