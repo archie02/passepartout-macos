@@ -7,6 +7,10 @@ PODS:
   - AppCenter/Core (2.4.0)
   - AppCenter/Crashes (2.4.0):
     - AppCenter/Core
+  - Convenience/InApp (0.0.1)
+  - Convenience/Misc (0.0.1)
+  - Convenience/Persistence (0.0.1)
+  - Convenience/Reviewer (0.0.1)
   - OpenSSL-Apple (1.1.0l.4)
   - SSZipArchive (2.2.2)
   - SwiftyBeaver (1.7.1)
@@ -23,6 +27,10 @@ PODS:
 
 DEPENDENCIES:
   - AppCenter
+  - Convenience/InApp (from `https://github.com/keeshux/convenience`, commit `5b53cb1`)
+  - Convenience/Misc (from `https://github.com/keeshux/convenience`, commit `5b53cb1`)
+  - Convenience/Persistence (from `https://github.com/keeshux/convenience`, commit `5b53cb1`)
+  - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `5b53cb1`)
   - SSZipArchive
   - TunnelKit/Extra/LZO (~> 2.0.5)
   - TunnelKit/Protocols/OpenVPN (~> 2.0.5)
@@ -35,13 +43,24 @@ SPEC REPOS:
     - SwiftyBeaver
     - TunnelKit
 
+EXTERNAL SOURCES:
+  Convenience:
+    :commit: 5b53cb1
+    :git: https://github.com/keeshux/convenience
+
+CHECKOUT OPTIONS:
+  Convenience:
+    :commit: 5b53cb1
+    :git: https://github.com/keeshux/convenience
+
 SPEC CHECKSUMS:
   AppCenter: 49a9ffe114c00e2bf5374aeda816d47eabf1978a
+  Convenience: c4240c936b2119752ffa0841d40a4bc6a0ba8a5d
   OpenSSL-Apple: f3d1668588ea8f06b076dcfa6177cd90452e3800
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
   TunnelKit: f33216415cd9d5e37b6acf02edb0c79350598b36
 
-PODFILE CHECKSUM: f14a2d3cec2fdef6fcc73015b4b56a9937d300b6
+PODFILE CHECKSUM: 6ed449bbd97429b95d415847fb93a64b450c99cc
 
 COCOAPODS: 1.8.1
