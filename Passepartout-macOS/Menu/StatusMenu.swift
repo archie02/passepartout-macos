@@ -26,6 +26,7 @@
 import Cocoa
 import PassepartoutCore
 import TunnelKit
+import Convenience
 
 class StatusMenu: NSObject {
     static let shared = StatusMenu()
@@ -305,7 +306,7 @@ class StatusMenu: NSObject {
             return
         }
         assert(!group.pools.isEmpty)
-        profile.poolId = group.pools.customRandomElement().id
+        profile.poolId = group.pools.randomElement()!.id
         vpn.reconnect(completionHandler: nil)
         
         // update menu
@@ -331,7 +332,7 @@ class StatusMenu: NSObject {
     }
 
     @objc private func writeReview() {
-        Reviewer.shared.writeReview()
+        Reviewer.shared.requestReview(appStoreId: AppConstants.App.appStoreId, force: true)
     }
     
     @objc private func showDonations() {
@@ -348,7 +349,7 @@ class StatusMenu: NSObject {
         let subject = V.subject
         let body = V.body(V.template)
 
-        guard let url = Utils.mailto(to: recipient, subject: subject, body: body) else {
+        guard let url = URL.mailto(to: recipient, subject: subject, body: body) else {
             return
         }
         NSWorkspace.shared.open(url)

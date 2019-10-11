@@ -51,7 +51,6 @@
 		0ECF12C72302268D008E4924 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECF12C62302268D008E4924 /* MainMenu.xib */; };
 		0ECF12CA230302DC008E4924 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12C9230302DC008E4924 /* MainMenu.swift */; };
 		0ECF12CC230451F5008E4924 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12CB230451F5008E4924 /* StatusMenu.swift */; };
-		0ECF12D323061124008E4924 /* InAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12D223061124008E4924 /* InAppHelper.swift */; };
 		0ECF12D523061143008E4924 /* InApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12D423061143008E4924 /* InApp.swift */; };
 		0ED978A3210E4CBD0021CFBF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED978A2210E4CBD0021CFBF /* AccountViewController.swift */; };
 		0ED978A8210F206C0021CFBF /* TrustedNetworksAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED978A7210F206C0021CFBF /* TrustedNetworksAddViewController.swift */; };
@@ -88,7 +87,6 @@
 		0EE4EBB8229A79B7000E4BA1 /* TrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB7E229A79B7000E4BA1 /* TrustPolicy.swift */; };
 		0EE4EBB9229A79B7000E4BA1 /* SessionProxy+Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB7F229A79B7000E4BA1 /* SessionProxy+Communication.swift */; };
 		0EE4EBBB229A79B7000E4BA1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB81229A79B7000E4BA1 /* Utils.swift */; };
-		0EE4EBBC229A79B7000E4BA1 /* Reviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB82229A79B7000E4BA1 /* Reviewer.swift */; };
 		0EE4EBBD229A79B7000E4BA1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB83229A79B7000E4BA1 /* AppConstants.swift */; };
 		0EE4EBBF229A79B7000E4BA1 /* PoolGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB87229A79B7000E4BA1 /* PoolGroup.swift */; };
 		0EE4EBC0229A79B7000E4BA1 /* Infrastructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4EB88229A79B7000E4BA1 /* Infrastructure.swift */; };
@@ -198,7 +196,6 @@
 		0ECF12C62302268D008E4924 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		0ECF12C9230302DC008E4924 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		0ECF12CB230451F5008E4924 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
-		0ECF12D223061124008E4924 /* InAppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InAppHelper.swift; path = Submodules/Core/Passepartout/Sources/InAppHelper.swift; sourceTree = SOURCE_ROOT; };
 		0ECF12D423061143008E4924 /* InApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InApp.swift; sourceTree = "<group>"; };
 		0ED31C3920CF39510027975F /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		0ED978A2210E4CBD0021CFBF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +237,6 @@
 		0EE4EB7E229A79B7000E4BA1 /* TrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustPolicy.swift; sourceTree = "<group>"; };
 		0EE4EB7F229A79B7000E4BA1 /* SessionProxy+Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionProxy+Communication.swift"; sourceTree = "<group>"; };
 		0EE4EB81229A79B7000E4BA1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		0EE4EB82229A79B7000E4BA1 /* Reviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reviewer.swift; sourceTree = "<group>"; };
 		0EE4EB83229A79B7000E4BA1 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		0EE4EB87229A79B7000E4BA1 /* PoolGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolGroup.swift; sourceTree = "<group>"; };
 		0EE4EB88229A79B7000E4BA1 /* Infrastructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Infrastructure.swift; sourceTree = "<group>"; };
@@ -505,9 +501,7 @@
 				0EE4EB83229A79B7000E4BA1 /* AppConstants.swift */,
 				0EE4EB6A229A79B7000E4BA1 /* ApplicationError.swift */,
 				0EE4EB69229A79B7000E4BA1 /* GroupConstants.swift */,
-				0ECF12D223061124008E4924 /* InAppHelper.swift */,
 				0EEF233E2321AB97000AEBE3 /* Issue.swift */,
-				0EE4EB82229A79B7000E4BA1 /* Reviewer.swift */,
 				0EE4EB81229A79B7000E4BA1 /* Utils.swift */,
 			);
 			path = Sources;
@@ -908,8 +902,6 @@
 				0EE4EBB5229A79B7000E4BA1 /* ProfileKey.swift in Sources */,
 				0EE4EBA3229A79B7000E4BA1 /* VPN.swift in Sources */,
 				0EE4EBB0229A79B7000E4BA1 /* EndpointDataSource.swift in Sources */,
-				0ECF12D323061124008E4924 /* InAppHelper.swift in Sources */,
-				0EE4EBBC229A79B7000E4BA1 /* Reviewer.swift in Sources */,
 				0EE4EBA7229A79B7000E4BA1 /* ConnectionService+Configurations.swift in Sources */,
 				0EE4EBB8229A79B7000E4BA1 /* TrustPolicy.swift in Sources */,
 				0EEF233F2321AB97000AEBE3 /* Issue.swift in Sources */,

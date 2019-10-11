@@ -26,7 +26,9 @@
 import Cocoa
 import SwiftyBeaver
 import PassepartoutCore
+import Convenience
 
+// comment on release
 import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
