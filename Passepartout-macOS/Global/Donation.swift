@@ -24,33 +24,26 @@
 //
 
 import Foundation
-import StoreKit
 
-struct InApp {
-    enum Donation: String {
-        static let all: [Donation] = [
-            .tiny,
-            .small,
-            .medium,
-            .big,
-            .huge,
-            .maxi
-        ]
-        
-        case tiny = "com.algoritmico.macos.Passepartout.donations.Tiny"
-        
-        case small = "com.algoritmico.macos.Passepartout.donations.Small"
-        
-        case medium = "com.algoritmico.macos.Passepartout.donations.Medium"
-        
-        case big = "com.algoritmico.macos.Passepartout.donations.Big"
-        
-        case huge = "com.algoritmico.macos.Passepartout.donations.Huge"
-        
-        case maxi = "com.algoritmico.macos.Passepartout.donations.Maxi"
-    }
+enum Donation: String {
+    case tiny = "com.algoritmico.macos.Passepartout.donations.Tiny"
     
-    static func allIdentifiers() -> Set<String> {
-        return Set<String>(Donation.all.map { $0.rawValue })
-    }
+    case small = "com.algoritmico.macos.Passepartout.donations.Small"
+    
+    case medium = "com.algoritmico.macos.Passepartout.donations.Medium"
+    
+    case big = "com.algoritmico.macos.Passepartout.donations.Big"
+    
+    case huge = "com.algoritmico.macos.Passepartout.donations.Huge"
+    
+    case maxi = "com.algoritmico.macos.Passepartout.donations.Maxi"
+
+    static let all: [Donation] = [
+        .tiny,
+        .small,
+        .medium,
+        .big,
+        .huge,
+        .maxi
+    ]
 }

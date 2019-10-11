@@ -11,6 +11,7 @@
 		0E23B4AB229895D900304C30 /* PassepartoutCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E23B4A9229895D900304C30 /* PassepartoutCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E23B4AE229895D900304C30 /* PassepartoutCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E23B4A7229895D900304C30 /* PassepartoutCore.framework */; };
 		0E23B4AF229895D900304C30 /* PassepartoutCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E23B4A7229895D900304C30 /* PassepartoutCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E25C5422350C722004075B5 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25C5412350C722004075B5 /* ProductManager.swift */; };
 		0E32B97B22A180100074D825 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E32B97A22A180100074D825 /* ConfigurationViewController.swift */; };
 		0E32B98022A1837A0074D825 /* PreferencesGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E32B97F22A1837A0074D825 /* PreferencesGeneralViewController.swift */; };
 		0E32B98222A1841A0074D825 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E32B98122A1841A0074D825 /* PreferencesViewController.swift */; };
@@ -51,7 +52,7 @@
 		0ECF12C72302268D008E4924 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECF12C62302268D008E4924 /* MainMenu.xib */; };
 		0ECF12CA230302DC008E4924 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12C9230302DC008E4924 /* MainMenu.swift */; };
 		0ECF12CC230451F5008E4924 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12CB230451F5008E4924 /* StatusMenu.swift */; };
-		0ECF12D523061143008E4924 /* InApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12D423061143008E4924 /* InApp.swift */; };
+		0ECF12D523061143008E4924 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF12D423061143008E4924 /* Donation.swift */; };
 		0ED978A3210E4CBD0021CFBF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED978A2210E4CBD0021CFBF /* AccountViewController.swift */; };
 		0ED978A8210F206C0021CFBF /* TrustedNetworksAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED978A7210F206C0021CFBF /* TrustedNetworksAddViewController.swift */; };
 		0EDE8DA020C86355004C739C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE8D9F20C86355004C739C /* AppDelegate.swift */; };
@@ -155,6 +156,7 @@
 		0E23B4A9229895D900304C30 /* PassepartoutCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassepartoutCore.h; sourceTree = "<group>"; };
 		0E23B4AA229895D900304C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E23B532229897CB00304C30 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0E25C5412350C722004075B5 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		0E32B97A22A180100074D825 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		0E32B97F22A1837A0074D825 /* PreferencesGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesGeneralViewController.swift; sourceTree = "<group>"; };
 		0E32B98122A1841A0074D825 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		0ECF12C62302268D008E4924 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		0ECF12C9230302DC008E4924 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		0ECF12CB230451F5008E4924 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
-		0ECF12D423061143008E4924 /* InApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InApp.swift; sourceTree = "<group>"; };
+		0ECF12D423061143008E4924 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
 		0ED31C3920CF39510027975F /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		0ED978A2210E4CBD0021CFBF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		0ED978A7210F206C0021CFBF /* TrustedNetworksAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedNetworksAddViewController.swift; sourceTree = "<group>"; };
@@ -366,11 +368,12 @@
 			isa = PBXGroup;
 			children = (
 				0E45E6FF22BD92E800F19312 /* App.strings */,
+				0ECF12D423061143008E4924 /* Donation.swift */,
 				0E08DD7E2309B0A800F537EB /* HostImporter.swift */,
-				0ECF12D423061143008E4924 /* InApp.swift */,
 				0E8899962321489000D6A3B7 /* IssueReporter.swift */,
 				0E88EC7E210F2C6700BF7D61 /* Macros.swift */,
 				0EB60FDB211113D700AD27F3 /* NSTextView+Search.swift */,
+				0E25C5412350C722004075B5 /* ProductManager.swift */,
 				0E6ACB7322AD5D6A001B3C99 /* SwiftGen+Assets.swift */,
 				0E6ACB7122AD5D6A001B3C99 /* SwiftGen+Scenes.swift */,
 				0E6ACB7222AD5D6A001B3C99 /* SwiftGen+Segues.swift */,
@@ -944,12 +947,13 @@
 				0E8899972321489000D6A3B7 /* IssueReporter.swift in Sources */,
 				0E08DD7F2309B0A800F537EB /* HostImporter.swift in Sources */,
 				0E6ACB7422AD5D6A001B3C99 /* SwiftGen+Scenes.swift in Sources */,
-				0ECF12D523061143008E4924 /* InApp.swift in Sources */,
+				0ECF12D523061143008E4924 /* Donation.swift in Sources */,
 				0E88EC7F210F2C6700BF7D61 /* Macros.swift in Sources */,
 				0E6ACB7622AD5D6A001B3C99 /* SwiftGen+Assets.swift in Sources */,
 				0EBCD2D2210D2A3200072BE5 /* ServiceViewController.swift in Sources */,
 				0E6ACB7A22B25E34001B3C99 /* ProviderServiceView.swift in Sources */,
 				0EB60FD82111128F00AD27F3 /* DebugLogViewController.swift in Sources */,
+				0E25C5422350C722004075B5 /* ProductManager.swift in Sources */,
 				0E6ACB7522AD5D6A001B3C99 /* SwiftGen+Segues.swift in Sources */,
 				0E32B98022A1837A0074D825 /* PreferencesGeneralViewController.swift in Sources */,
 				0E45E72122BEE7AB00F19312 /* OrganizerProfileTableView.swift in Sources */,

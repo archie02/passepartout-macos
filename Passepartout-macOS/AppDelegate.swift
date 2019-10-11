@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         InfrastructureFactory.shared.loadCache()
         Reviewer.shared.eventCountBeforeRating = AppConstants.Rating.eventCount
 
-        InAppHelper.shared.requestProducts(withIdentifiers: InApp.allIdentifiers(), completionHandler: nil)
+        ProductManager.shared.listProducts(completionHandler: nil)
 
         NSApp.mainMenu = loadMainMenu()
         StatusMenu.shared.install()
