@@ -4,3 +4,6 @@
 [submodule "Submodules/API"]
 	path = Submodules/API
 	url = https://github.com/passepartoutvpn/api
+[submodule "Submodules/fastlane-ci-templates"]
+	path = Submodules/fastlane-ci-templates
+	url = git@github.com:keeshux/fastlane-ci-templates.git
