@@ -43,6 +43,7 @@ class HostImporter {
 
     init(withConfigurationURL configurationURL: URL) {
         self.configurationURL = configurationURL
+        log.debug("Parsing configuration URL: \(configurationURL)")
 
         windowController = WindowManager.shared.showOrganizer()
         viewController = windowController?.contentViewController
