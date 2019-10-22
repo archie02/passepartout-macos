@@ -39,7 +39,7 @@ class HostImporter {
     
     private weak var accountDelegate: AccountViewControllerDelegate?
 
-    private var configurationURL: URL
+    private let configurationURL: URL
 
     init(withConfigurationURL configurationURL: URL) {
         self.configurationURL = configurationURL
