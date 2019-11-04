@@ -84,7 +84,7 @@ class DebugLogViewController: NSViewController {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(vpnDidPrepare), name: .VPNDidPrepare, object: nil)
         nc.addObserver(self, selector: #selector(vpnDidUpdate), name: .VPNDidChangeStatus, object: nil)
-        nc.addObserver(self, selector: #selector(serviceDidUpdateDataCount), name: .ConnectionServiceDidUpdateDataCount, object: nil)
+        nc.addObserver(self, selector: #selector(serviceDidUpdateDataCount), name: ConnectionService.didUpdateDataCount, object: nil)
 
         if vpn.isPrepared {
             startRefreshingLog()
