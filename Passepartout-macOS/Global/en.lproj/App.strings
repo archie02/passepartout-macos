@@ -45,6 +45,7 @@
 
 "configuration.title" = "Configuration";
 
+"network_settings.dns.cells.domains.title" = "Domains";
 "network_settings.dns.cells.addresses.title" = "Servers";
 "network_settings.proxy.cells.bypass_domains.title" = "Bypass domains";
 

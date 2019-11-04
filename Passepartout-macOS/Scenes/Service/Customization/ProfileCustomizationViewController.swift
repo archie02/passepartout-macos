@@ -160,7 +160,7 @@ extension ProfileCustomizationContainerViewController: ProfileCustomizationDeleg
     
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateDNS choice: NetworkChoice, withManualSettings newSettings: ProfileNetworkSettings) {
         pendingChoices?.dns = choice
-        pendingManualNetworkSettings.dnsDomainName = newSettings.dnsDomainName
+        pendingManualNetworkSettings.dnsSearchDomains = newSettings.dnsSearchDomains
         pendingManualNetworkSettings.dnsServers = newSettings.dnsServers
     }
     
