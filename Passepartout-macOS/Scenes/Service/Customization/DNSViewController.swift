@@ -28,6 +28,8 @@ import PassepartoutCore
 
 class DNSViewController: NSViewController, ProfileCustomization {
     private struct Templates {
+        static let domain = ""
+
         static let server = "0.0.0.0"
     }
 
@@ -35,15 +37,15 @@ class DNSViewController: NSViewController, ProfileCustomization {
     
     @IBOutlet private weak var viewSettings: NSView!
 
-    @IBOutlet private weak var labelDomainCaption: NSTextField!
-    
-    @IBOutlet private weak var textDomain: NSTextField!
+    @IBOutlet private weak var viewDNSDomains: NSView!
     
     @IBOutlet private weak var viewDNSAddresses: NSView!
     
     @IBOutlet private var constraintChoiceBottom: NSLayoutConstraint!
     
     @IBOutlet private var constraintSettingsTop: NSLayoutConstraint!
+    
+    private lazy var tableDNSDomains: TextTableView = .get()
     
     private lazy var tableDNSAddresses: TextTableView = .get()
     
@@ -64,8 +66,15 @@ class DNSViewController: NSViewController, ProfileCustomization {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelDomainCaption.stringValue = L10n.Core.NetworkSettings.Dns.Cells.Domain.caption.asCaption
-        textDomain.placeholderString = L10n.Core.Global.Values.none
+        tableDNSDomains.title = L10n.App.NetworkSettings.Dns.Cells.Domains.title.asCaption
+        viewDNSDomains.addSubview(tableDNSDomains)
+        tableDNSDomains.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableDNSDomains.topAnchor.constraint(equalTo: viewDNSDomains.topAnchor),
+            tableDNSDomains.bottomAnchor.constraint(equalTo: viewDNSDomains.bottomAnchor),
+            tableDNSDomains.leftAnchor.constraint(equalTo: viewDNSDomains.leftAnchor),
+            tableDNSDomains.rightAnchor.constraint(equalTo: viewDNSDomains.rightAnchor),
+        ])
         
         tableDNSAddresses.title = L10n.App.NetworkSettings.Dns.Cells.Addresses.title.asCaption
         viewDNSAddresses.addSubview(tableDNSAddresses)
@@ -84,6 +93,7 @@ class DNSViewController: NSViewController, ProfileCustomization {
                 popupChoice.selectItem(at: popupChoice.numberOfItems - 1)
             }
         }
+        tableDNSDomains.rowTemplate = Templates.domain
         tableDNSAddresses.rowTemplate = Templates.server
         loadSettings(from: currentChoice)
     }
@@ -102,7 +112,7 @@ class DNSViewController: NSViewController, ProfileCustomization {
             return
         }
         view.endEditing()
-        networkSettings.dnsDomainName = textDomain.stringValue
+        networkSettings.dnsSearchDomains = tableDNSDomains.rows
         networkSettings.dnsServers = tableDNSAddresses.rows
 
         delegate?.profileCustomization(self, didUpdateDNS: .manual, withManualSettings: networkSettings)
@@ -127,10 +137,14 @@ class DNSViewController: NSViewController, ProfileCustomization {
             }
         }
         
-        textDomain.isEnabled = (currentChoice == .manual)
-        textDomain.stringValue = networkSettings.dnsDomainName ?? ""
-        tableDNSAddresses.rows = networkSettings.dnsServers ?? []
+        tableDNSDomains.isEnabled = (currentChoice == .manual)
+        tableDNSDomains.rows = networkSettings.dnsSearchDomains ?? []
+        tableDNSDomains.isRemoveEnabled = false
+        tableDNSDomains.selectedRow = nil
+        tableDNSDomains.reloadData()
+
         tableDNSAddresses.isAddEnabled = (currentChoice == .manual)
+        tableDNSAddresses.rows = networkSettings.dnsServers ?? []
         tableDNSAddresses.isRemoveEnabled = false
         tableDNSAddresses.selectedRow = nil
         tableDNSAddresses.reloadData()

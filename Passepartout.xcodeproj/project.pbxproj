@@ -39,6 +39,7 @@
 		0E6ACB7C22B25E40001B3C99 /* HostServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6ACB7B22B25E40001B3C99 /* HostServiceView.swift */; };
 		0E6ACB7E22B26628001B3C99 /* ProviderServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E6ACB7D22B26628001B3C99 /* ProviderServiceView.xib */; };
 		0E6ACB8022B2664B001B3C99 /* HostServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E6ACB7F22B2664B001B3C99 /* HostServiceView.xib */; };
+		0E812AFB2370200900676B1C /* AppConstants+Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E812AFA2370200900676B1C /* AppConstants+Flags.swift */; };
 		0E8899972321489000D6A3B7 /* IssueReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8899962321489000D6A3B7 /* IssueReporter.swift */; };
 		0E88EC7F210F2C6700BF7D61 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E88EC7E210F2C6700BF7D61 /* Macros.swift */; };
 		0EB60FD82111128F00AD27F3 /* DebugLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB60FD72111128F00AD27F3 /* DebugLogViewController.swift */; };
@@ -185,6 +186,7 @@
 		0E6ACB7B22B25E40001B3C99 /* HostServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostServiceView.swift; sourceTree = "<group>"; };
 		0E6ACB7D22B26628001B3C99 /* ProviderServiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderServiceView.xib; sourceTree = "<group>"; };
 		0E6ACB7F22B2664B001B3C99 /* HostServiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HostServiceView.xib; sourceTree = "<group>"; };
+		0E812AFA2370200900676B1C /* AppConstants+Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppConstants+Flags.swift"; sourceTree = "<group>"; };
 		0E8899962321489000D6A3B7 /* IssueReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueReporter.swift; sourceTree = "<group>"; };
 		0E88EC7E210F2C6700BF7D61 /* Macros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		0EB60FD72111128F00AD27F3 /* DebugLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				0E45E6FF22BD92E800F19312 /* App.strings */,
+				0E812AFA2370200900676B1C /* AppConstants+Flags.swift */,
 				0ECF12D423061143008E4924 /* Donation.swift */,
 				0E08DD7E2309B0A800F537EB /* HostImporter.swift */,
 				0E8899962321489000D6A3B7 /* IssueReporter.swift */,
@@ -966,6 +969,7 @@
 				0ECF12CA230302DC008E4924 /* MainMenu.swift in Sources */,
 				0EF7960222BA7E7B00262FC6 /* EndpointViewController.swift in Sources */,
 				0EDE8DA020C86355004C739C /* AppDelegate.swift in Sources */,
+				0E812AFB2370200900676B1C /* AppConstants+Flags.swift in Sources */,
 				0E32B98222A1841A0074D825 /* PreferencesViewController.swift in Sources */,
 				0EB60FDC211113D700AD27F3 /* NSTextView+Search.swift in Sources */,
 				0E32B97B22A180100074D825 /* ConfigurationViewController.swift in Sources */,
