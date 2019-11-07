@@ -39,15 +39,15 @@ class IssueReporter: NSObject {
             let alert = Macros.warning(L10n.Core.IssueReporter.title, L10n.Core.IssueReporter.message)
             alert.present(in: nil, withOK: L10n.Core.IssueReporter.Buttons.accept, cancel: L10n.Core.Global.cancel, handler: {
                 VPN.shared.requestDebugLog(fallback: AppConstants.Log.debugSnapshot) {
-                    self.composeEmail(withDebugLog: $0, configurationURL: issue.configurationURL, description: issue.description)
+                    self.composeEmail(withDebugLog: $0, issue: issue)
                 }
             }, cancelHandler: nil)
         } else {
-            composeEmail(withDebugLog: nil, configurationURL: issue.configurationURL, description: issue.description)
+            composeEmail(withDebugLog: nil, issue: issue)
         }
     }
     
-    private func composeEmail(withDebugLog debugLog: String?, configurationURL: URL?, description: String?) {
+    private func composeEmail(withDebugLog debugLog: String?, issue: Issue) {
         guard let sharing = NSSharingService(named: .composeEmail) else {
             // TODO: show error alert
             return
@@ -68,8 +68,18 @@ class IssueReporter: NSObject {
 //            }
 //        }
         
-        let metadata = DebugLog(raw: "--").decoratedString()
-        let body = AppConstants.IssueReporter.Email.body(description ?? AppConstants.IssueReporter.Email.template, metadata)
+        let bodyContent = AppConstants.IssueReporter.Email.template
+        var bodyMetadata = "--\n\n"
+        bodyMetadata += DebugLog(raw: "").decoratedString()
+        if let infrastructure = issue.infrastructure {
+            bodyMetadata += "Provider: \(infrastructure.name.rawValue)\n"
+            if let lastUpdated = InfrastructureFactory.shared.modificationDate(for: infrastructure.name) {
+                bodyMetadata += "Last updated: \(lastUpdated)\n"
+            }
+            bodyMetadata += "\n"
+        }
+        bodyMetadata += "--"
+        let body = AppConstants.IssueReporter.Email.body(bodyContent, bodyMetadata)
         items.append(body)
 
         if let raw = debugLog {
@@ -78,7 +88,7 @@ class IssueReporter: NSObject {
                 items.append(item)
             }
         }
-        if let url = configurationURL {
+        if let url = issue.configurationURL {
             do {
                 let parsedFile = try OpenVPN.ConfigurationParser.parsed(fromURL: url, returnsStripped: true)
                 if let attachment = parsedFile.strippedLines?.joined(separator: "\n").data(using: .utf8),
