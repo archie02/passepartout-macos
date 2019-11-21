@@ -26,7 +26,9 @@
 import Cocoa
 import PassepartoutCore
 
-class TrustedNetworksViewController: NSViewController {
+// FIXME: do not reinstall, save trustedNetworks, commit in container
+
+class TrustedNetworksViewController: NSViewController, ProfileCustomization {
     private struct Columns {
         static let ssid = NSUserInterfaceItemIdentifier("SSID")
 
@@ -47,10 +49,16 @@ class TrustedNetworksViewController: NSViewController {
 
     private let service = TransientStore.shared.service
 
-    private let model = TrustedNetworksModel()
+    private let model = TrustedNetworksUI()
     
-    private lazy var vpn = GracefulVPN(service: service)
+    // MARK: ProfileCustomization
     
+    var profile: ConnectionProfile?
+    
+    private lazy var trustedNetworks = profile?.trustedNetworks ?? TrustedNetworks()
+
+    weak var delegate: ProfileCustomizationDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,9 +68,9 @@ class TrustedNetworksViewController: NSViewController {
         checkDisableConnection.title = L10n.Core.Service.Cells.TrustedPolicy.caption
         labelDisableConnectionDescription.stringValue = L10n.Core.Service.Sections.Trusted.footer
 
-        checkDisableConnection.state = (service.preferences.trustPolicy == .disconnect) ? .on : .off
+        checkDisableConnection.state = (trustedNetworks.policy == .disconnect) ? .on : .off
         model.delegate = self
-        model.load(from: service.preferences)
+        model.load(from: trustedNetworks)
         updateButtons()
 
         tableView.reloadData()
@@ -96,26 +104,34 @@ class TrustedNetworksViewController: NSViewController {
     @IBAction private func toggleRetainConnection(_ sender: Any?) {
         let isOn = (checkDisableConnection.state == .on)
         let completionHandler: () -> Void = {
-            self.service.preferences.trustPolicy = isOn ? .disconnect : .ignore
-            if self.vpn.isEnabled {
-                self.vpn.reinstall(completionHandler: nil)
-            }
+            self.trustedNetworks.policy = isOn ? .disconnect : .ignore
+
+            // FIXME
+//            if self.vpn.isEnabled {
+//                self.vpn.reinstall(completionHandler: nil)
+//            }
         }
-        guard isOn else {
-            completionHandler()
-            return
-        }
-        guard vpn.isEnabled else {
-            completionHandler()
-            return
-        }
-        let alert = Macros.warning(
-            L10n.Core.Service.Sections.Trusted.header,
-            L10n.Core.Service.Alerts.Trusted.WillDisconnectPolicy.message
-        )
-        alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: completionHandler, cancelHandler: {
-            self.checkDisableConnection.state = .off
-        })
+        // FIXME
+//        guard isOn else {
+//            completionHandler()
+//            return
+//        }
+//        guard vpn.isEnabled else {
+//            completionHandler()
+//            return
+//        }
+
+        // VPN untouched
+//        let alert = Macros.warning(
+//            L10n.Core.Service.Sections.Trusted.header,
+//            L10n.Core.Service.Alerts.Trusted.WillDisconnectPolicy.message
+//        )
+//        alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: completionHandler, cancelHandler: {
+//            self.checkDisableConnection.state = .off
+//        })
+        completionHandler()
+
+        delegate?.profileCustomization(self, didUpdateTrustedNetworks: trustedNetworks)
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -180,12 +196,16 @@ extension TrustedNetworksViewController: NSTableViewDataSource, NSTableViewDeleg
     }
 }
 
-extension TrustedNetworksViewController: TrustedNetworksModelDelegate {
-    func trustedNetworksCouldDisconnect(_: TrustedNetworksModel) -> Bool {
-        return (service.preferences.trustPolicy == .disconnect) && (vpn.status != .disconnected)
+extension TrustedNetworksViewController: TrustedNetworksUIDelegate {
+    func trustedNetworksCouldDisconnect(_: TrustedNetworksUI) -> Bool {
+        // FIXME
+//        return (trustedNetworks.policy == .disconnect) && (vpn.status != .disconnected)
+
+        // VPN untouched
+        return false
     }
 
-    func trustedNetworksShouldConfirmDisconnection(_: TrustedNetworksModel, triggeredAt rowIndex: Int, completionHandler: @escaping () -> Void) {
+    func trustedNetworksShouldConfirmDisconnection(_: TrustedNetworksUI, triggeredAt rowIndex: Int, completionHandler: @escaping () -> Void) {
         let alert = Macros.warning(
             L10n.Core.Service.Sections.Trusted.header,
             L10n.Core.Service.Alerts.Trusted.WillDisconnectTrusted.message
@@ -193,7 +213,7 @@ extension TrustedNetworksViewController: TrustedNetworksModelDelegate {
         alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: completionHandler, cancelHandler: nil)
     }
     
-    func trustedNetworks(_: TrustedNetworksModel, shouldInsertWifiAt rowIndex: Int) {
+    func trustedNetworks(_: TrustedNetworksUI, shouldInsertWifiAt rowIndex: Int) {
 //        tableView.beginUpdates()
 //        tableView.insertRows(at: IndexSet(integer: rowIndex), withAnimation: .slideDown)
 //        tableView.endUpdates()
@@ -202,11 +222,11 @@ extension TrustedNetworksViewController: TrustedNetworksModelDelegate {
         updateButtons()
     }
     
-    func trustedNetworks(_: TrustedNetworksModel, shouldReloadWifiAt rowIndex: Int, isTrusted: Bool) {
+    func trustedNetworks(_: TrustedNetworksUI, shouldReloadWifiAt rowIndex: Int, isTrusted: Bool) {
         //
     }
     
-    func trustedNetworks(_: TrustedNetworksModel, shouldDeleteWifiAt rowIndex: Int) {
+    func trustedNetworks(_: TrustedNetworksUI, shouldDeleteWifiAt rowIndex: Int) {
 //        tableView.beginUpdates()
 //        tableView.removeRows(at: IndexSet(integer: rowIndex), withAnimation: .slideUp)
 //        tableView.endUpdates()
@@ -215,11 +235,15 @@ extension TrustedNetworksViewController: TrustedNetworksModelDelegate {
         updateButtons()
     }
     
-    func trustedNetworksShouldReinstall(_: TrustedNetworksModel) {
-        service.preferences.trustedWifis = model.trustedWifis
-        if vpn.isEnabled {
-            vpn.reinstall(completionHandler: nil)
-        }
+    func trustedNetworksShouldReinstall(_: TrustedNetworksUI) {
+        trustedNetworks.includedWiFis = model.trustedWifis
+
+        // FIXME
+//        if vpn.isEnabled {
+//            vpn.reinstall(completionHandler: nil)
+//        }
+        
+        delegate?.profileCustomization(self, didUpdateTrustedNetworks: trustedNetworks)
     }
 }
 
