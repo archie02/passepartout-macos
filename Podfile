@@ -13,8 +13,8 @@ def shared_pods
     #pod_path $tunnelkit_name, $tunnelkit_specs, '..'
     pod 'SSZipArchive'
 
-    for spec in ['InApp', 'Misc', 'Persistence', 'Reviewer'] do
-        pod "Convenience/#{spec}", :git => 'https://github.com/keeshux/convenience', :commit => 'b990a8c'
+    for spec in ['InApp', 'Misc', 'Persistence', 'Reviewer', 'WebServices'] do
+        pod "Convenience/#{spec}", :git => 'https://github.com/keeshux/convenience', :commit => '4a9fdd4'
     end
 end
 

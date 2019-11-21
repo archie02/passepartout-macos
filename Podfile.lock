@@ -1,16 +1,18 @@
 PODS:
-  - AppCenter (2.4.0):
-    - AppCenter/Analytics (= 2.4.0)
-    - AppCenter/Crashes (= 2.4.0)
-  - AppCenter/Analytics (2.4.0):
+  - AppCenter (2.5.1):
+    - AppCenter/Analytics (= 2.5.1)
+    - AppCenter/Crashes (= 2.5.1)
+  - AppCenter/Analytics (2.5.1):
     - AppCenter/Core
-  - AppCenter/Core (2.4.0)
-  - AppCenter/Crashes (2.4.0):
+  - AppCenter/Core (2.5.1)
+  - AppCenter/Crashes (2.5.1):
     - AppCenter/Core
   - Convenience/InApp (0.0.1)
   - Convenience/Misc (0.0.1)
   - Convenience/Persistence (0.0.1)
   - Convenience/Reviewer (0.0.1)
+  - Convenience/WebServices (0.0.1):
+    - SwiftyBeaver
   - OpenSSL-Apple (1.1.1d.5a)
   - SSZipArchive (2.2.2)
   - SwiftyBeaver (1.8.3)
@@ -27,10 +29,11 @@ PODS:
 
 DEPENDENCIES:
   - AppCenter
-  - Convenience/InApp (from `https://github.com/keeshux/convenience`, commit `b990a8c`)
-  - Convenience/Misc (from `https://github.com/keeshux/convenience`, commit `b990a8c`)
-  - Convenience/Persistence (from `https://github.com/keeshux/convenience`, commit `b990a8c`)
-  - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `b990a8c`)
+  - Convenience/InApp (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
+  - Convenience/Misc (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
+  - Convenience/Persistence (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
+  - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
+  - Convenience/WebServices (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
   - SSZipArchive
   - TunnelKit/Extra/LZO (~> 2.1.0)
   - TunnelKit/Protocols/OpenVPN (~> 2.1.0)
@@ -45,22 +48,22 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Convenience:
-    :commit: b990a8c
+    :commit: 4a9fdd4
     :git: https://github.com/keeshux/convenience
 
 CHECKOUT OPTIONS:
   Convenience:
-    :commit: b990a8c
+    :commit: 4a9fdd4
     :git: https://github.com/keeshux/convenience
 
 SPEC CHECKSUMS:
-  AppCenter: 49a9ffe114c00e2bf5374aeda816d47eabf1978a
-  Convenience: c2bc96be4ca77c7018f85b2c63b95c2a44c05c5a
+  AppCenter: fddcbac6e4baae3d93a196ceb0bfe0e4ce407dec
+  Convenience: 230739dd640bb826b640765d93715744721726be
   OpenSSL-Apple: 2c9efbc94e0a1ada434cc197b02bd70052a82281
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftyBeaver: 3d3e93a12d648bd400b6f2948a7ef128b5b183c7
   TunnelKit: ddcccbf8c984e2760a42899e311e7991f21e42cc
 
-PODFILE CHECKSUM: 89d8c37c79b6bade96b6f43de632454e1cc23683
+PODFILE CHECKSUM: 3882c68892729e6ebc4069d0d390fe2711232d93
 
 COCOAPODS: 1.8.4
