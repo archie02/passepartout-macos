@@ -139,6 +139,9 @@ class ProfileCustomizationContainerViewController: NSViewController {
             profile?.manualNetworkSettings = settings
         }
         
+        let vpn = GracefulVPN(service: TransientStore.shared.service)
+        vpn.reinstall(completionHandler: nil)
+
         dismiss(self)
     }
 }
