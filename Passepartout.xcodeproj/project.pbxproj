@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E08105F238693FA00ED747F /* TrustedNetworksUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08105E238693FA00ED747F /* TrustedNetworksUI.swift */; };
 		0E08DD7F2309B0A800F537EB /* HostImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08DD7E2309B0A800F537EB /* HostImporter.swift */; };
 		0E23B4AB229895D900304C30 /* PassepartoutCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E23B4A9229895D900304C30 /* PassepartoutCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E23B4AE229895D900304C30 /* PassepartoutCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E23B4A7229895D900304C30 /* PassepartoutCore.framework */; };
@@ -152,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E08105E238693FA00ED747F /* TrustedNetworksUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustedNetworksUI.swift; sourceTree = "<group>"; };
 		0E08DD7E2309B0A800F537EB /* HostImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImporter.swift; sourceTree = "<group>"; };
 		0E23B4A7229895D900304C30 /* PassepartoutCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PassepartoutCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E23B4A9229895D900304C30 /* PassepartoutCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassepartoutCore.h; sourceTree = "<group>"; };
@@ -319,6 +321,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0E08105D238693FA00ED747F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E08105E238693FA00ED747F /* TrustedNetworksUI.swift */,
+			);
+			name = UI;
+			path = Submodules/Core/Passepartout/Sources/UI;
+			sourceTree = SOURCE_ROOT;
+		};
 		0E23B4A8229895D900304C30 /* PassepartoutCore-macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,8 +345,6 @@
 				0EB60FD72111128F00AD27F3 /* DebugLogViewController.swift */,
 				0E32B97F22A1837A0074D825 /* PreferencesGeneralViewController.swift */,
 				0E32B98122A1841A0074D825 /* PreferencesViewController.swift */,
-				0ED978A7210F206C0021CFBF /* TrustedNetworksAddViewController.swift */,
-				0EBCD2D5210D2A5000072BE5 /* TrustedNetworksViewController.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -503,6 +512,7 @@
 			children = (
 				0EE4EB6B229A79B7000E4BA1 /* Model */,
 				0EE4EB86229A79B7000E4BA1 /* Services */,
+				0E08105D238693FA00ED747F /* UI */,
 				0EE4EB61229A79B7000E4BA1 /* VPN */,
 				0EE4EB83229A79B7000E4BA1 /* AppConstants.swift */,
 				0EE4EB6A229A79B7000E4BA1 /* ApplicationError.swift */,
@@ -595,6 +605,8 @@
 				0EF7960122BA7E7B00262FC6 /* EndpointViewController.swift */,
 				0EF7960422BA80B600262FC6 /* ProfileCustomizationViewController.swift */,
 				0E6395F722BC406B009C83F6 /* ProxyViewController.swift */,
+				0ED978A7210F206C0021CFBF /* TrustedNetworksAddViewController.swift */,
+				0EBCD2D5210D2A5000072BE5 /* TrustedNetworksViewController.swift */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -891,6 +903,7 @@
 				0EE4EBAE229A79B7000E4BA1 /* DataUnit.swift in Sources */,
 				0EE4EB9E229A79B7000E4BA1 /* StandardVPNProvider.swift in Sources */,
 				0EE4EBC3229A79B7000E4BA1 /* WebServices.swift in Sources */,
+				0E08105F238693FA00ED747F /* TrustedNetworksUI.swift in Sources */,
 				0EE4EBAA229A79B7000E4BA1 /* TrustedNetworks.swift in Sources */,
 				0EE4EBC4229A79B7000E4BA1 /* InfrastructureFactory.swift in Sources */,
 				0EE4EBB4229A79B7000E4BA1 /* ProviderConnectionProfile.swift in Sources */,

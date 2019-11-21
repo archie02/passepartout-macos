@@ -39,9 +39,11 @@ protocol ProfileCustomizationDelegate: class {
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateEndpointWithProtocol newEndpointProtocol: EndpointProtocol?)
     
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdatePreset newPreset: InfrastructurePreset)
-    
+
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateConfiguration newConfiguration: OpenVPN.ConfigurationBuilder)
     
+    func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateTrustedNetworks newTrustedNetworks: TrustedNetworks)
+
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateGateway choice: NetworkChoice, withManualSettings newSettings: ProfileNetworkSettings)
 
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateDNS choice: NetworkChoice, withManualSettings newSettings: ProfileNetworkSettings)
@@ -74,6 +76,8 @@ class ProfileCustomizationContainerViewController: NSViewController {
 
     // MARK: Pending
     
+    private var pendingTrustedNetworks: TrustedNetworks?
+    
     private var pendingChoices: ProfileNetworkChoices?
 
     private let pendingManualNetworkSettings = ProfileNetworkSettings()
@@ -87,6 +91,7 @@ class ProfileCustomizationContainerViewController: NSViewController {
         pendingAddress = (profile as? ProviderConnectionProfile)?.manualAddress
         pendingProtocol = (profile as? ProviderConnectionProfile)?.manualProtocol
         pendingPreset = (profile as? ProviderConnectionProfile)?.preset
+        pendingTrustedNetworks = profile?.trustedNetworks
         pendingParameters = (profile as? HostConnectionProfile)?.parameters.sessionConfiguration.builder()
         pendingChoices = ProfileNetworkChoices.with(profile: profile)
     }
@@ -117,6 +122,8 @@ class ProfileCustomizationContainerViewController: NSViewController {
             hostProfile.parameters = builder.build()
         }
         
+        profile?.trustedNetworks = pendingTrustedNetworks
+        
         if let choices = pendingChoices {
             let settings = profile?.manualNetworkSettings ?? ProfileNetworkSettings()
             if choices.gateway == .manual {
@@ -132,6 +139,9 @@ class ProfileCustomizationContainerViewController: NSViewController {
             profile?.manualNetworkSettings = settings
         }
         
+        let vpn = GracefulVPN(service: TransientStore.shared.service)
+        vpn.reinstall(completionHandler: nil)
+
         dismiss(self)
     }
 }
@@ -151,6 +161,10 @@ extension ProfileCustomizationContainerViewController: ProfileCustomizationDeleg
     
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateConfiguration newConfiguration: OpenVPN.ConfigurationBuilder) {
         pendingParameters = newConfiguration
+    }
+    
+    func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateTrustedNetworks newTrustedNetworks: TrustedNetworks) {
+        pendingTrustedNetworks = newTrustedNetworks
     }
     
     func profileCustomization(_ profileCustomization: ProfileCustomization, didUpdateGateway choice: NetworkChoice, withManualSettings newSettings: ProfileNetworkSettings) {
@@ -198,13 +212,14 @@ class ProfileCustomizationViewController: NSTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let expectedTabs = 5
+        let expectedTabs = 6
         assert(tabViewItems.count == expectedTabs, "Customization tabs misconfigured (expected \(expectedTabs))")
 
         tabViewItems[0].label = L10n.Core.Endpoint.title
         tabViewItems[1].label = L10n.App.Configuration.title
-        tabViewItems[2].label = L10n.Core.NetworkSettings.Gateway.title
-        tabViewItems[3].label = L10n.Core.NetworkSettings.Dns.title
-        tabViewItems[4].label = L10n.Core.NetworkSettings.Proxy.title
+        tabViewItems[2].label = L10n.Core.Service.Sections.Trusted.header
+        tabViewItems[3].label = L10n.Core.NetworkSettings.Gateway.title
+        tabViewItems[4].label = L10n.Core.NetworkSettings.Dns.title
+        tabViewItems[5].label = L10n.Core.NetworkSettings.Proxy.title
     }
 }

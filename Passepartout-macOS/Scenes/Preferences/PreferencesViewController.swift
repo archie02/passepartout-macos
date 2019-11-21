@@ -35,7 +35,6 @@ class PreferencesViewController: NSViewController {
         title = L10n.App.Preferences.title(GroupConstants.App.name)
         let labels = [
             L10n.App.Preferences.Sections.General.header,
-            L10n.Core.Service.Sections.Trusted.header,
             L10n.Core.Service.Sections.Diagnostics.header
         ]
         tabView.tabViewItems.enumerated().forEach {
