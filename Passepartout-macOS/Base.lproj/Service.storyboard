@@ -484,6 +484,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Baa-Z1-JJJ" secondAttribute="trailing" id="Kc3-oq-1nC"/>
                                             <constraint firstItem="Baa-Z1-JJJ" firstAttribute="leading" secondItem="L6f-kb-mEG" secondAttribute="leading" id="OAq-vY-0dj"/>
                                             <constraint firstAttribute="trailing" secondItem="L6f-kb-mEG" secondAttribute="trailing" id="Ufy-l9-JnV"/>
+                                            <constraint firstItem="L6f-kb-mEG" firstAttribute="top" secondItem="Zfd-mA-qV9" secondAttribute="top" id="ht1-Z0-GZL"/>
                                             <constraint firstItem="Baa-Z1-JJJ" firstAttribute="top" secondItem="L6f-kb-mEG" secondAttribute="bottom" constant="10" id="qwn-Pc-7xS"/>
                                         </constraints>
                                     </customView>
@@ -494,7 +495,6 @@
                                     <constraint firstItem="Zfd-mA-qV9" firstAttribute="leading" secondItem="Zao-dc-fzq" secondAttribute="leading" id="C1K-EU-y2R"/>
                                     <constraint firstItem="bFA-yD-Roy" firstAttribute="leading" secondItem="Zao-dc-fzq" secondAttribute="leading" constant="150" id="DSy-uq-QJd"/>
                                     <constraint firstAttribute="bottom" secondItem="Zfd-mA-qV9" secondAttribute="bottom" id="IoU-2m-d07"/>
-                                    <constraint firstItem="L6f-kb-mEG" firstAttribute="top" secondItem="bFA-yD-Roy" secondAttribute="bottom" constant="10" id="cbo-oa-CdD"/>
                                     <constraint firstItem="L6f-kb-mEG" firstAttribute="leading" secondItem="bFA-yD-Roy" secondAttribute="leading" id="hqH-9b-APZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Zfd-mA-qV9" secondAttribute="trailing" id="mkp-8f-ZKo"/>
                                     <constraint firstItem="bFA-yD-Roy" firstAttribute="top" secondItem="Zao-dc-fzq" secondAttribute="top" id="suK-gn-ven"/>
