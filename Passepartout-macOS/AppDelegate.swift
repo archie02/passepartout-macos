@@ -42,13 +42,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override init() {
         AppConstants.Log.configure()
 //        AppConstants.Flags.isMockVPN = true
+        InfrastructureFactory.shared.preload()
         super.init()
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        InfrastructureFactory.shared.loadCache()
         Reviewer.shared.eventCountBeforeRating = AppConstants.Rating.eventCount
-
         ProductManager.shared.listProducts(completionHandler: nil)
 
         NSApp.mainMenu = loadMainMenu()

@@ -239,7 +239,7 @@ internal enum L10n {
         internal enum Guidance {
           internal enum Footer {
             internal enum Infrastructure {
-              /// Use your %@ website credentials. Your username is usually numeric.
+              /// Use your %@ website credentials. Your username is usually numeric (without spaces).
               internal static func mullvad(_ p1: String) -> String {
                 return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.mullvad", p1)
               }
@@ -1004,6 +1004,20 @@ internal enum L10n {
           internal enum Existing {
             /// A host profile with the same title already exists. Replace it?
             internal static let message = L10n.tr("Core", "wizards.host.alerts.existing.message")
+          }
+        }
+      }
+      internal enum Provider {
+        internal enum Alerts {
+          internal enum Unavailable {
+            /// Could not download provider infrastructure, please retry later.
+            internal static let message = L10n.tr("Core", "wizards.provider.alerts.unavailable.message")
+          }
+        }
+        internal enum Cells {
+          internal enum UpdateList {
+            /// Update list
+            internal static let caption = L10n.tr("Core", "wizards.provider.cells.update_list.caption")
           }
         }
       }

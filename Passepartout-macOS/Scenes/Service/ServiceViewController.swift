@@ -313,7 +313,7 @@ extension ServiceViewController: ProviderServiceViewDelegate {
         let name = uncheckedProviderProfile.name
         
         viewProvider.isRefreshingInfrastructure = true
-        let isUpdating = InfrastructureFactory.shared.update(name, notBeforeInterval: AppConstants.Web.minimumUpdateInterval) { (response, error) in
+        let isUpdating = InfrastructureFactory.shared.update(name, notBeforeInterval: AppConstants.Services.minimumUpdateInterval) { (response, error) in
             self.viewProvider.isRefreshingInfrastructure = false
             guard let _ = response else {
                 return

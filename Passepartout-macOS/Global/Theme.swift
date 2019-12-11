@@ -50,22 +50,20 @@ struct Theme {
     }
 }
 
-extension String {
+// FIXME: load from index JSON
+extension Infrastructure.Metadata {
     var logo: NSImage? {
-        return ImageAsset(name: lowercased()).image
-    }
-}
-
-extension Infrastructure.Name {
-    var logo: NSImage? {
-        return ImageAsset(name: rawValue.lowercased()).image
+        guard let image = AssetImageTypeAlias(named: name) else {
+            return Asset.Providers.placeholder.image
+        }
+        return image
     }
 }
 
 extension ConnectionProfile {
     var image: NSImage? {
         if let profile = self as? ProviderConnectionProfile {
-            return profile.infrastructure.name.logo
+            return profile.infrastructure.metadata?.logo
         } else {
             // FIXME: host profile icon
             return NSImage(named: NSImage.actionTemplateName)
@@ -91,5 +89,11 @@ extension NetworkChoice: CustomStringConvertible {
         case .manual:
             return L10n.Core.Global.Values.manual
         }
+    }
+}
+
+extension String {
+    var image: NSImage? {
+        return ImageAsset(name: lowercased()).image
     }
 }

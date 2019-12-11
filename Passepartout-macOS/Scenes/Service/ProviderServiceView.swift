@@ -170,7 +170,7 @@ class ProviderServiceView: NSView {
             currentCategoryIndex = a
             currentLocationIndex = b
         }
-        if let lastInfrastructureUpdate = InfrastructureFactory.shared.modificationDate(for: profile.name) {
+        if let lastInfrastructureUpdate = InfrastructureFactory.shared.modificationDate(forName: profile.name) {
             labelLastInfrastructureUpdate.stringValue = L10n.Core.Service.Sections.ProviderInfrastructure.footer(lastInfrastructureUpdate.timestamp)
         }
     }
@@ -239,7 +239,7 @@ class ProviderServiceView: NSView {
             }
             let item = NSMenuItem(title: $0.secondaryId, action: nil, keyEquivalent: "")
             if let extraCountry = $0.extraCountries?.first {
-                item.image = extraCountry.logo
+                item.image = extraCountry.image
             }
             menu.addItem(item)
         }

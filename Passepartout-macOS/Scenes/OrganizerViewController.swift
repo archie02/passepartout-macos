@@ -80,10 +80,10 @@ class OrganizerViewController: NSViewController {
     // MARK: Actions
     
     @objc private func addProvider(_ sender: Any?) {
-        guard let item = sender as? NSMenuItem, let name = Infrastructure.Name(rawValue: item.title) else {
+        guard let item = sender as? NSMenuItem, let metadata = item.representedObject as? Infrastructure.Metadata else {
             return
         }
-        perform(segue: StoryboardSegue.Main.enterAccountSegueIdentifier, sender: name)
+        perform(segue: StoryboardSegue.Main.enterAccountSegueIdentifier, sender: metadata.name)
     }
     
     @objc private func addHost() {
@@ -199,11 +199,12 @@ extension OrganizerViewController: OrganizerProfileTableViewDelegate {
 
         let itemProvider = NSMenuItem(title: L10n.App.Organizer.Menus.provider, action: nil, keyEquivalent: "")
         let menuProvider = NSMenu()
-        let availableNames = service.availableProviderNames()
-        if !availableNames.isEmpty {
-            for name in availableNames {
-                let item = NSMenuItem(title: name.rawValue, action: #selector(addProvider(_:)), keyEquivalent: "")
-                item.image = name.logo
+        let availableMetadata = service.availableProviders()
+        if !availableMetadata.isEmpty {
+            for metadata in availableMetadata {
+                let item = NSMenuItem(title: metadata.description, action: #selector(addProvider(_:)), keyEquivalent: "")
+                item.image = metadata.logo
+                item.representedObject = metadata
                 menuProvider.addItem(item)
             }
         } else {

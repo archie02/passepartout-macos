@@ -43,6 +43,8 @@
 		0E812AFB2370200900676B1C /* AppConstants+Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E812AFA2370200900676B1C /* AppConstants+Flags.swift */; };
 		0E8899972321489000D6A3B7 /* IssueReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8899962321489000D6A3B7 /* IssueReporter.swift */; };
 		0E88EC7F210F2C6700BF7D61 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E88EC7E210F2C6700BF7D61 /* Macros.swift */; };
+		0E9497AF23A1649800725065 /* Infrastructure+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9497AD23A1649800725065 /* Infrastructure+Metadata.swift */; };
+		0E9497B023A1649800725065 /* Infrastructure+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9497AE23A1649800725065 /* Infrastructure+Name.swift */; };
 		0EB60FD82111128F00AD27F3 /* DebugLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB60FD72111128F00AD27F3 /* DebugLogViewController.swift */; };
 		0EB60FDC211113D700AD27F3 /* NSTextView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB60FDB211113D700AD27F3 /* NSTextView+Search.swift */; };
 		0EBB7F3B2301FF5000120B98 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB7F3A2301FF5000120B98 /* WindowManager.swift */; };
@@ -191,6 +193,8 @@
 		0E812AFA2370200900676B1C /* AppConstants+Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppConstants+Flags.swift"; sourceTree = "<group>"; };
 		0E8899962321489000D6A3B7 /* IssueReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueReporter.swift; sourceTree = "<group>"; };
 		0E88EC7E210F2C6700BF7D61 /* Macros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		0E9497AD23A1649800725065 /* Infrastructure+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Infrastructure+Metadata.swift"; path = "Submodules/Core/Passepartout/Sources/Services/Infrastructure+Metadata.swift"; sourceTree = SOURCE_ROOT; };
+		0E9497AE23A1649800725065 /* Infrastructure+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Infrastructure+Name.swift"; path = "Submodules/Core/Passepartout/Sources/Services/Infrastructure+Name.swift"; sourceTree = SOURCE_ROOT; };
 		0EB60FD72111128F00AD27F3 /* DebugLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogViewController.swift; sourceTree = "<group>"; };
 		0EB60FDB211113D700AD27F3 /* NSTextView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Search.swift"; sourceTree = "<group>"; };
 		0EBB7F3A2301FF5000120B98 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
@@ -576,6 +580,8 @@
 			isa = PBXGroup;
 			children = (
 				0EE4EB88229A79B7000E4BA1 /* Infrastructure.swift */,
+				0E9497AD23A1649800725065 /* Infrastructure+Metadata.swift */,
+				0E9497AE23A1649800725065 /* Infrastructure+Name.swift */,
 				0EE4EB8C229A79B7000E4BA1 /* InfrastructureFactory.swift */,
 				0EE4EB8A229A79B7000E4BA1 /* InfrastructurePreset.swift */,
 				0EE4EB89229A79B7000E4BA1 /* Pool.swift */,
@@ -898,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EE4EBB1229A79B7000E4BA1 /* ConnectionService.swift in Sources */,
+				0E9497B023A1649800725065 /* Infrastructure+Name.swift in Sources */,
 				0EE4EBA5229A79B7000E4BA1 /* GroupConstants.swift in Sources */,
 				0EE4EBAF229A79B7000E4BA1 /* TransientStore.swift in Sources */,
 				0EE4EBAE229A79B7000E4BA1 /* DataUnit.swift in Sources */,
@@ -926,6 +933,7 @@
 				0EEF233F2321AB97000AEBE3 /* Issue.swift in Sources */,
 				0EE4EBA9229A79B7000E4BA1 /* ConnectionProfile.swift in Sources */,
 				0EE4EBBB229A79B7000E4BA1 /* Utils.swift in Sources */,
+				0E9497AF23A1649800725065 /* Infrastructure+Metadata.swift in Sources */,
 				0EE4EBBF229A79B7000E4BA1 /* PoolGroup.swift in Sources */,
 				0EE4EBB6229A79B7000E4BA1 /* PlaceholderConnectionProfile.swift in Sources */,
 				0EE4EBBD229A79B7000E4BA1 /* AppConstants.swift in Sources */,
