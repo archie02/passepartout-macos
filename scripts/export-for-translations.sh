@@ -1,0 +1,1 @@
+../Submodules/Core/scripts/export-for-translations.sh

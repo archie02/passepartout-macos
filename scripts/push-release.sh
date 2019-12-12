@@ -1,0 +1,1 @@
+../Submodules/Core/scripts/push-release.sh
