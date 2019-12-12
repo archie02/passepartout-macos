@@ -124,12 +124,12 @@ class StatusMenu: NSObject {
         itemTranslate.target = self
         itemFAQ.target = self
         itemReport.target = self
-        menuSupport.addItem(itemCommunity)
-        menuSupport.addItem(itemReview)
-        menuSupport.addItem(.separator())
         menuSupport.addItem(itemDonate)
+        menuSupport.addItem(itemCommunity)
+        menuSupport.addItem(.separator())
 //        menuSupport.addItem(itemPatreon)
-        menuSupport.addItem(itemTranslate)
+//        menuSupport.addItem(itemTranslate)
+        menuSupport.addItem(itemReview)
         menuSupport.addItem(.separator())
         menuSupport.addItem(itemFAQ)
         menuSupport.addItem(itemReport)
