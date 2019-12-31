@@ -31,10 +31,6 @@ class PreferencesGeneralViewController: NSViewController {
 
     @IBOutlet private weak var labelResolveHostname: NSTextField!
 
-    @IBOutlet private weak var checkKeepAliveOnSleep: NSButton!
-    
-    @IBOutlet private weak var labelKeepAliveOnSleep: NSTextField!
-    
     private let service = TransientStore.shared.service
 
     override func viewDidLoad() {
@@ -42,9 +38,6 @@ class PreferencesGeneralViewController: NSViewController {
         
         checkResolveHostname.title = L10n.Core.Service.Cells.VpnResolvesHostname.caption
         labelResolveHostname.stringValue = L10n.Core.Service.Sections.VpnResolvesHostname.footer
-
-        checkKeepAliveOnSleep.title = L10n.Core.Service.Cells.VpnSurvivesSleep.caption
-        labelKeepAliveOnSleep.stringValue = L10n.Core.Service.Sections.VpnSurvivesSleep.footer
     }
     
     @IBAction private func toggleResolvesHostname(_ sender: Any?) {
@@ -52,11 +45,6 @@ class PreferencesGeneralViewController: NSViewController {
         cycleVPNIfNeeded()
     }
 
-    @IBAction private func toggleKeepAlive(_ sender: Any?) {
-        service.preferences.disconnectsOnSleep = (checkKeepAliveOnSleep.state != .on)
-        cycleVPNIfNeeded()
-    }
-    
     private func cycleVPNIfNeeded() {
         let vpn = GracefulVPN(service: service)
         guard vpn.isEnabled else {

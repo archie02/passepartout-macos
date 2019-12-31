@@ -206,34 +206,13 @@
         <scene sceneID="Hao-Zy-3Z2">
             <objects>
                 <viewController id="0Rd-zE-HaE" customClass="PreferencesGeneralViewController" customModule="Passepartout" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="goM-B1-s6Q">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="146"/>
+                    <view key="view" misplaced="YES" id="goM-B1-s6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="78"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YAc-Jc-giQ">
-                                <rect key="frame" x="20" y="20" width="460" height="106"/>
+                                <rect key="frame" x="20" y="20" width="460" height="38"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TAa-oy-ttM">
-                                        <rect key="frame" x="58" y="90" width="404" height="18"/>
-                                        <buttonCell key="cell" type="check" title="&lt;keep alive&gt;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vXj-1O-QdK">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="toggleKeepAlive:" target="0Rd-zE-HaE" id="eYV-xO-NOP"/>
-                                        </connections>
-                                    </button>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-TM-ZG2">
-                                        <rect key="frame" x="58" y="68" width="404" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="400" id="dM4-rk-lSa"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" controlSize="small" title="&lt;keep alive desc&gt;" id="fiU-jb-mST">
-                                            <font key="font" metaFont="toolTip"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KZa-SZ-feg">
                                         <rect key="frame" x="58" y="22" width="404" height="18"/>
                                         <buttonCell key="cell" type="check" title="&lt;resolve&gt;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pvb-NJ-IsO">
@@ -245,28 +224,21 @@
                                         </connections>
                                     </button>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ebe-Av-HQp">
-                                        <rect key="frame" x="58" y="0.0" width="404" height="14"/>
+                                        <rect key="frame" x="58" y="0.0" width="87" height="14"/>
                                         <textFieldCell key="cell" controlSize="small" title="&lt;resolve_desc&gt;" id="a7v-LU-QXs">
-                                            <font key="font" metaFont="toolTip"/>
+                                            <font key="font" metaFont="menu" size="11"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="TAa-oy-ttM" firstAttribute="leading" secondItem="KZa-SZ-feg" secondAttribute="leading" id="0da-Lc-49h"/>
                                     <constraint firstItem="ebe-Av-HQp" firstAttribute="top" secondItem="KZa-SZ-feg" secondAttribute="bottom" constant="10" id="Amg-4a-O5i"/>
-                                    <constraint firstItem="w0g-TM-ZG2" firstAttribute="top" secondItem="TAa-oy-ttM" secondAttribute="bottom" constant="10" id="Lsu-g7-O6j"/>
-                                    <constraint firstItem="w0g-TM-ZG2" firstAttribute="trailing" secondItem="ebe-Av-HQp" secondAttribute="trailing" id="RFo-9d-J9L"/>
-                                    <constraint firstAttribute="trailing" secondItem="TAa-oy-ttM" secondAttribute="trailing" id="S5E-GM-aOY"/>
-                                    <constraint firstItem="w0g-TM-ZG2" firstAttribute="leading" secondItem="TAa-oy-ttM" secondAttribute="leading" id="XWa-vV-b6d"/>
-                                    <constraint firstItem="KZa-SZ-feg" firstAttribute="top" secondItem="w0g-TM-ZG2" secondAttribute="bottom" constant="30" id="anR-De-nrU"/>
+                                    <constraint firstItem="KZa-SZ-feg" firstAttribute="top" secondItem="YAc-Jc-giQ" secondAttribute="top" id="FQZ-4q-Zrh"/>
                                     <constraint firstItem="KZa-SZ-feg" firstAttribute="leading" secondItem="YAc-Jc-giQ" secondAttribute="leading" constant="60" id="ccW-f9-bRP"/>
-                                    <constraint firstItem="TAa-oy-ttM" firstAttribute="top" secondItem="YAc-Jc-giQ" secondAttribute="top" id="ceX-1v-2z6"/>
                                     <constraint firstAttribute="bottom" secondItem="ebe-Av-HQp" secondAttribute="bottom" id="clD-lJ-Cmj"/>
                                     <constraint firstItem="ebe-Av-HQp" firstAttribute="leading" secondItem="KZa-SZ-feg" secondAttribute="leading" id="eGw-4w-cj0"/>
                                     <constraint firstAttribute="trailing" secondItem="KZa-SZ-feg" secondAttribute="trailing" id="f7h-Vt-bC3"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="w0g-TM-ZG2" secondAttribute="trailing" id="l2c-bs-ghL"/>
                                 </constraints>
                             </customView>
                         </subviews>
@@ -278,9 +250,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="checkKeepAliveOnSleep" destination="TAa-oy-ttM" id="idA-po-ee4"/>
                         <outlet property="checkResolveHostname" destination="KZa-SZ-feg" id="fQP-vS-LY7"/>
-                        <outlet property="labelKeepAliveOnSleep" destination="w0g-TM-ZG2" id="R56-ZX-GSZ"/>
                         <outlet property="labelResolveHostname" destination="ebe-Av-HQp" id="IaQ-Pn-dHd"/>
                     </connections>
                 </viewController>
