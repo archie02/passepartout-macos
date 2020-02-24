@@ -1,11 +1,11 @@
 PODS:
-  - AppCenter (2.5.1):
-    - AppCenter/Analytics (= 2.5.1)
-    - AppCenter/Crashes (= 2.5.1)
-  - AppCenter/Analytics (2.5.1):
+  - AppCenter (3.0.0):
+    - AppCenter/Analytics (= 3.0.0)
+    - AppCenter/Crashes (= 3.0.0)
+  - AppCenter/Analytics (3.0.0):
     - AppCenter/Core
-  - AppCenter/Core (2.5.1)
-  - AppCenter/Crashes (2.5.1):
+  - AppCenter/Core (3.0.0)
+  - AppCenter/Crashes (3.0.0):
     - AppCenter/Core
   - Convenience/InApp (0.0.1)
   - Convenience/Misc (0.0.1)
@@ -15,7 +15,7 @@ PODS:
     - SwiftyBeaver
   - OpenSSL-Apple (1.1.1d.5a)
   - SSZipArchive (2.2.2)
-  - SwiftyBeaver (1.8.3)
+  - SwiftyBeaver (1.8.4)
   - TunnelKit/AppExtension (2.2.2):
     - SwiftyBeaver
     - TunnelKit/Core
@@ -62,11 +62,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/passepartoutvpn/tunnelkit
 
 SPEC CHECKSUMS:
-  AppCenter: fddcbac6e4baae3d93a196ceb0bfe0e4ce407dec
+  AppCenter: 7a0bbe928d07467ac8b2d7f6f2a675872a6471d8
   Convenience: 230739dd640bb826b640765d93715744721726be
   OpenSSL-Apple: 2c9efbc94e0a1ada434cc197b02bd70052a82281
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
-  SwiftyBeaver: 3d3e93a12d648bd400b6f2948a7ef128b5b183c7
+  SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
   TunnelKit: 1733ed87934deb57edc7aa5f4b25185bf302a7d4
 
 PODFILE CHECKSUM: fc6d20e152b5da46ab2d266f8066b031d3c42d51
