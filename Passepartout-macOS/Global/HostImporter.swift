@@ -40,7 +40,11 @@ class HostImporter {
     private weak var accountDelegate: AccountViewControllerDelegate?
 
     private let configurationURL: URL
+    
+    private var createdTitle: String?
 
+    private var replacedProfile: ConnectionProfile?
+    
     init(withConfigurationURL configurationURL: URL) {
         self.configurationURL = configurationURL
         log.debug("Parsing configuration URL: \(configurationURL)")
@@ -102,10 +106,10 @@ class HostImporter {
 
         let vc = StoryboardScene.Main.textInputViewController.instantiate()
         vc.caption = L10n.Core.Global.Host.TitleInput.message
-        let profile = HostConnectionProfile(title: title, hostname: hostname)
+        let profile = HostConnectionProfile(hostname: hostname)
         let builder = OpenVPNTunnelProvider.ConfigurationBuilder(sessionConfiguration: result.configuration)
         profile.parameters = builder.build()
-        vc.text = profile.id
+        vc.text = title
         vc.placeholder = L10n.Core.Global.Host.TitleInput.placeholder
         vc.object = profile
         vc.delegate = self
@@ -185,19 +189,24 @@ extension HostImporter: TextInputViewControllerDelegate {
 
         // rename profile
         if let profile = textInputController.object as? ConnectionProfile {
-            let renamedProfile = profile.with(newId: text)
-            
+            createdTitle = text
+
             // overwrite host with existing name?
-            guard !service.containsProfile(renamedProfile) else {
+            replacedProfile = nil
+            if let existingHostId = service.existingHostId(withTitle: text) {
                 dismiss(textInputController)
-                
+
                 let alert = Macros.warning(text, L10n.Core.Wizards.Host.Alerts.Existing.message)
                 if alert.presentModally(withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel) {
-                    enterCredentials(forProfile: renamedProfile)
+                    guard let existingProfile = service.profile(withContext: profile.context, id: existingHostId) else {
+                        fatalError("ConnectionService.existingHostId() returned a non-existing host profile?")
+                    }
+                    replacedProfile = existingProfile
+                    enterCredentials(forProfile: profile)
                 }
                 return
             }
-            enterCredentials(forProfile: renamedProfile)
+            enterCredentials(forProfile: profile)
         }
         // enter passphrase
         else {
@@ -215,10 +224,13 @@ extension HostImporter : AccountViewControllerDelegate {
     }
     
     func accountController(_ accountController: AccountViewController, didUpdateCredentials credentials: Credentials, forProfile profile: ConnectionProfile) {
-        accountDelegate?.accountController(accountController, didUpdateCredentials: credentials, forProfile: profile)
-
-        // try store associated .ovpn file
+        if let replacedProfile = replacedProfile {
+            service.removeProfile(ProfileKey(replacedProfile))
+        }
+        service.addOrReplaceProfile(profile, credentials: credentials, title: createdTitle)
         _ = try? service.save(configurationURL: configurationURL, for: profile)
+
+        accountDelegate?.accountController(accountController, didUpdateCredentials: credentials, forProfile: profile)
     }
     
     func accountControllerDidCancel(_ accountController: AccountViewController) {

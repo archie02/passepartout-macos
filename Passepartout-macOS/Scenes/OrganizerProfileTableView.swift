@@ -43,6 +43,8 @@ class OrganizerProfileTableView: NSView {
 
     @IBOutlet private weak var buttonRename: NSButton!
     
+    private let service = TransientStore.shared.service
+    
     var rows: [ConnectionProfile] = []
     
     var selectedRow: Int?
@@ -144,15 +146,15 @@ class OrganizerProfileTableViewCell: NSTableCellView {
             guard let objectValue = objectValue else {
                 return
             }
-            guard let profile = objectValue as? ConnectionProfile else {
-                fatalError("objectValue is not a ConnectionProfile")
+            guard let pair = objectValue as? (ConnectionService, ConnectionProfile) else {
+                fatalError("objectValue is not a (ConnectionService, ConnectionProfile)")
             }
-            imageView?.image = profile.image
-            textField?.stringValue = profile.screenTitle
+            imageView?.image = pair.1.image
+            textField?.stringValue = pair.0.screenTitle(forHostId: pair.1.id)
 
             // FIXME: active profile icon
             imageActive?.image = NSImage(named: NSImage.menuOnStateTemplateName)
-            imageActive?.isHidden = !TransientStore.shared.service.isActiveProfile(profile)
+            imageActive?.isHidden = !TransientStore.shared.service.isActiveProfile(pair.1)
         }
     }
 }
@@ -163,7 +165,7 @@ extension OrganizerProfileTableView: NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return rows[row]
+        return (service, rows[row])
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {

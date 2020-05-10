@@ -139,7 +139,7 @@ class OrganizerViewController: NSViewController {
             
             // rename host
             vc.caption = L10n.Core.Global.Host.TitleInput.message
-            vc.text = profile.id
+            vc.text = service.screenTitle(forHostId: profile.id)
             vc.placeholder = L10n.Core.Global.Host.TitleInput.placeholder
             vc.object = profile
             vc.delegate = self
@@ -177,7 +177,9 @@ class OrganizerViewController: NSViewController {
             }
             profiles.append(profile)
         }
-        profiles.sort { $0.id.lowercased() < $1.id.lowercased() }
+        profiles.sort {
+            service.screenTitle(ProfileKey($0)) < service.screenTitle(ProfileKey($1))
+        }
 
         tableProfiles.rows = profiles
         for (i, p) in profiles.enumerated() {
@@ -226,7 +228,7 @@ extension OrganizerViewController: OrganizerProfileTableViewDelegate {
 
         let alert = Macros.warning(
             L10n.App.Organizer.Alerts.RemoveProfile.title,
-            L10n.App.Organizer.Alerts.RemoveProfile.message(profile.id)
+            L10n.App.Organizer.Alerts.RemoveProfile.message(service.screenTitle(forHostId: profile.id))
         )
         alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: {
             self.removePendingProfile()
@@ -269,7 +271,7 @@ extension OrganizerViewController: TextInputViewControllerDelegate {
         guard let profile = textInputController.object as? ConnectionProfile else {
             return
         }
-        if text != profile.id {
+        if text != service.screenTitle(forHostId: profile.id) {
             service.renameProfile(profile, to: text)
         }
         dismiss(textInputController)
@@ -284,7 +286,7 @@ extension OrganizerViewController: ConnectionServiceDelegate {
         tableProfiles.reloadData()
     }
     
-    func connectionService(didRename oldProfile: ConnectionProfile, to newProfile: ConnectionProfile) {
+    func connectionService(didRename profile: ConnectionProfile, to newTitle: String) {
         TransientStore.shared.serialize(withProfiles: false) // rename
 
         reloadProfiles()

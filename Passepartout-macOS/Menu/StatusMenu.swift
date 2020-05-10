@@ -162,7 +162,7 @@ class StatusMenu: NSObject {
             return
         }
         
-        itemProfileName?.title = profile.id
+        itemProfileName?.title = service.screenTitle(forHostId: profile.id)
 //        itemProfileName?.image = profile.image
         
         let needsCredentials = service.needsCredentials(for: profile)
