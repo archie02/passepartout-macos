@@ -219,6 +219,7 @@ class ServiceViewController: NSViewController {
         guard let status = vpn.status else {
             return
         }
+        log.debug("VPN.status: \(status)")
         switch status {
         case .connected:
             Reviewer.shared.reportEvent()
