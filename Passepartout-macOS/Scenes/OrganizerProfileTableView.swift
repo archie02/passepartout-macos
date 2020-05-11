@@ -150,7 +150,7 @@ class OrganizerProfileTableViewCell: NSTableCellView {
                 fatalError("objectValue is not a (ConnectionService, ConnectionProfile)")
             }
             imageView?.image = pair.1.image
-            textField?.stringValue = pair.0.screenTitle(forHostId: pair.1.id)
+            textField?.stringValue = pair.0.screenTitle(ProfileKey(pair.1))
 
             // FIXME: active profile icon
             imageActive?.image = NSImage(named: NSImage.menuOnStateTemplateName)
