@@ -105,7 +105,7 @@ class HostImporter {
         }
 
         let vc = StoryboardScene.Main.textInputViewController.instantiate()
-        vc.caption = L10n.Core.Global.Host.TitleInput.message
+        vc.caption = L10n.Core.Service.Alerts.Rename.title.asCaption
         let profile = HostConnectionProfile(hostname: hostname)
         let builder = OpenVPNTunnelProvider.ConfigurationBuilder(sessionConfiguration: result.configuration)
         profile.parameters = builder.build()
@@ -182,7 +182,7 @@ extension HostImporter: TextInputViewControllerDelegate {
         guard let _ = textInputController.object as? ConnectionProfile else {
             return true
         }
-        return text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
+        return true//text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
     }
     
     func textInputController(_ textInputController: TextInputViewController, didEnterText text: String) {

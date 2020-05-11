@@ -138,7 +138,7 @@ class OrganizerViewController: NSViewController {
             }
             
             // rename host
-            vc.caption = L10n.Core.Global.Host.TitleInput.message
+            vc.caption = L10n.Core.Service.Alerts.Rename.title.asCaption
             vc.text = service.screenTitle(forHostId: profile.id)
             vc.placeholder = L10n.Core.Global.Host.TitleInput.placeholder
             vc.object = profile
@@ -263,7 +263,7 @@ extension OrganizerViewController: AccountViewControllerDelegate {
 // rename existing host profile
 extension OrganizerViewController: TextInputViewControllerDelegate {
     func textInputController(_ textInputController: TextInputViewController, shouldEnterText text: String) -> Bool {
-        return text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
+        return true//text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
     }
     
     func textInputController(_ textInputController: TextInputViewController, didEnterText text: String) {
