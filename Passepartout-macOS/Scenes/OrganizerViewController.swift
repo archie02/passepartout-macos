@@ -138,8 +138,8 @@ class OrganizerViewController: NSViewController {
             }
             
             // rename host
-            vc.caption = L10n.Core.Global.Host.TitleInput.message
-            vc.text = profile.id
+            vc.caption = L10n.Core.Service.Alerts.Rename.title.asCaption
+            vc.text = service.screenTitle(forHostId: profile.id)
             vc.placeholder = L10n.Core.Global.Host.TitleInput.placeholder
             vc.object = profile
             vc.delegate = self
@@ -177,7 +177,9 @@ class OrganizerViewController: NSViewController {
             }
             profiles.append(profile)
         }
-        profiles.sort { $0.id.lowercased() < $1.id.lowercased() }
+        profiles.sort {
+            service.screenTitle(ProfileKey($0)) < service.screenTitle(ProfileKey($1))
+        }
 
         tableProfiles.rows = profiles
         for (i, p) in profiles.enumerated() {
@@ -226,7 +228,7 @@ extension OrganizerViewController: OrganizerProfileTableViewDelegate {
 
         let alert = Macros.warning(
             L10n.App.Organizer.Alerts.RemoveProfile.title,
-            L10n.App.Organizer.Alerts.RemoveProfile.message(profile.id)
+            L10n.App.Organizer.Alerts.RemoveProfile.message(service.screenTitle(forHostId: profile.id))
         )
         alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: {
             self.removePendingProfile()
@@ -247,11 +249,10 @@ extension OrganizerViewController: AccountViewControllerDelegate {
     }
     
     func accountController(_ accountController: AccountViewController, didUpdateCredentials credentials: Credentials, forProfile profile: ConnectionProfile) {
-        service.addOrReplaceProfile(profile, credentials: credentials)
 
-        if profiles.count == 1 {
-            service.activateProfile(profile)
-            serviceController?.setProfile(profile)
+        // finish adding provider (host adding is done by HostImporter)
+        if profile.context == .provider {
+            service.addOrReplaceProfile(profile, credentials: credentials)
         }
     }
     
@@ -262,14 +263,14 @@ extension OrganizerViewController: AccountViewControllerDelegate {
 // rename existing host profile
 extension OrganizerViewController: TextInputViewControllerDelegate {
     func textInputController(_ textInputController: TextInputViewController, shouldEnterText text: String) -> Bool {
-        return text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
+        return true//text.rangeOfCharacter(from: CharacterSet.filename.inverted) == nil
     }
     
     func textInputController(_ textInputController: TextInputViewController, didEnterText text: String) {
         guard let profile = textInputController.object as? ConnectionProfile else {
             return
         }
-        if text != profile.id {
+        if text != service.screenTitle(forHostId: profile.id) {
             service.renameProfile(profile, to: text)
         }
         dismiss(textInputController)
@@ -284,7 +285,7 @@ extension OrganizerViewController: ConnectionServiceDelegate {
         tableProfiles.reloadData()
     }
     
-    func connectionService(didRename oldProfile: ConnectionProfile, to newProfile: ConnectionProfile) {
+    func connectionService(didRename profile: ConnectionProfile, to newTitle: String) {
         TransientStore.shared.serialize(withProfiles: false) // rename
 
         reloadProfiles()
