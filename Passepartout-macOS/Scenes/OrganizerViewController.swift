@@ -249,11 +249,10 @@ extension OrganizerViewController: AccountViewControllerDelegate {
     }
     
     func accountController(_ accountController: AccountViewController, didUpdateCredentials credentials: Credentials, forProfile profile: ConnectionProfile) {
-        service.addOrReplaceProfile(profile, credentials: credentials)
 
-        if profiles.count == 1 {
-            service.activateProfile(profile)
-            serviceController?.setProfile(profile)
+        // finish adding provider (host adding is done by HostImporter)
+        if profile.context == .provider {
+            service.addOrReplaceProfile(profile, credentials: credentials)
         }
     }
     
