@@ -104,6 +104,36 @@ class OrganizerViewController: NSViewController {
         importer?.importHost(withPassphrase: nil)
     }
     
+    private func confirmRenameProfile(_ profile: ConnectionProfile, to newTitle: String) {
+        
+        // rename to existing title -> confirm overwrite existing
+        if let existingProfile = service.hostProfile(withTitle: newTitle) {
+            let alert = Macros.warning(
+                L10n.Core.Service.Alerts.Rename.title,
+                L10n.Core.Wizards.Host.Alerts.Existing.message
+            )
+            alert.present(in: view.window, withOK: L10n.Core.Global.ok, cancel: L10n.Core.Global.cancel, handler: {
+                self.doReplaceProfile(profile, to: newTitle, existingProfile: existingProfile)
+            }, cancelHandler: nil)
+            return
+        }
+
+        // do nothing if same title
+        if newTitle != service.screenTitle(forHostId: profile.id) {
+            service.renameProfile(profile, to: newTitle)
+        }
+    }
+    
+    private func doReplaceProfile(_ profile: ConnectionProfile, to newTitle: String, existingProfile: ConnectionProfile) {
+        let wasActive = service.isActiveProfile(existingProfile)
+        service.removeProfile(ProfileKey(existingProfile))
+        service.renameProfile(profile, to: newTitle)
+        if wasActive {
+            service.activateProfile(profile)
+        }
+        serviceController?.setProfile(profile)
+    }
+
     @IBAction private func reconnectVPN(_ sender: Any?) {
         GracefulVPN(service: service).reconnect(completionHandler: nil)
     }
@@ -270,9 +300,7 @@ extension OrganizerViewController: TextInputViewControllerDelegate {
         guard let profile = textInputController.object as? ConnectionProfile else {
             return
         }
-        if text != service.screenTitle(forHostId: profile.id) {
-            service.renameProfile(profile, to: text)
-        }
+        confirmRenameProfile(profile, to: text)
         dismiss(textInputController)
     }
 }
