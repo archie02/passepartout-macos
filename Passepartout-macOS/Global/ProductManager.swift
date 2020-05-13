@@ -26,6 +26,9 @@
 import Foundation
 import StoreKit
 import Convenience
+import SwiftyBeaver
+
+private let log = SwiftyBeaver.self
 
 struct ProductManager {
     static let shared = ProductManager()
@@ -36,14 +39,19 @@ struct ProductManager {
         inApp = InApp()
     }
     
-    func listProducts(completionHandler: (([SKProduct]) -> Void)?) {
-        guard inApp.products.isEmpty else {
-            completionHandler?(inApp.products)
+    func listProducts(completionHandler: (([SKProduct]?, Error?) -> Void)?) {
+        let products = Donation.all
+        guard !products.isEmpty else {
+            completionHandler?(nil, nil)
             return
         }
-        inApp.requestProducts(withIdentifiers: Donation.all) { _ in
-            completionHandler?(self.inApp.products)
-        }
+        inApp.requestProducts(withIdentifiers: products, completionHandler: { _ in
+            log.debug("In-app products: \(self.inApp.products.map { $0.productIdentifier })")
+
+            completionHandler?(self.inApp.products, nil)
+        }, failureHandler: {
+            completionHandler?(nil, $0)
+        })
     }
 
     func purchase(_ product: SKProduct, completionHandler: @escaping (InAppPurchaseResult, Error?) -> Void) {
