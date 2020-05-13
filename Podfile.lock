@@ -7,11 +7,11 @@ PODS:
   - AppCenter/Core (3.1.1)
   - AppCenter/Crashes (3.1.1):
     - AppCenter/Core
-  - Convenience/InApp (0.0.1)
-  - Convenience/Misc (0.0.1)
-  - Convenience/Persistence (0.0.1)
-  - Convenience/Reviewer (0.0.1)
-  - Convenience/WebServices (0.0.1):
+  - Convenience/InApp (0.0.2)
+  - Convenience/Misc (0.0.2)
+  - Convenience/Persistence (0.0.2)
+  - Convenience/Reviewer (0.0.2)
+  - Convenience/WebServices (0.0.2):
     - SwiftyBeaver
   - OpenSSL-Apple (1.1.1f.6)
   - SSZipArchive (2.2.2)
@@ -29,11 +29,11 @@ PODS:
 
 DEPENDENCIES:
   - AppCenter
-  - Convenience/InApp (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
-  - Convenience/Misc (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
-  - Convenience/Persistence (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
-  - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
-  - Convenience/WebServices (from `https://github.com/keeshux/convenience`, commit `4a9fdd4`)
+  - Convenience/InApp (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
+  - Convenience/Misc (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
+  - Convenience/Persistence (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
+  - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
+  - Convenience/WebServices (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
   - SSZipArchive
   - TunnelKit/Extra/LZO (from `https://github.com/passepartoutvpn/tunnelkit`, commit `735c1fd`)
   - TunnelKit/Protocols/OpenVPN (from `https://github.com/passepartoutvpn/tunnelkit`, commit `735c1fd`)
@@ -47,7 +47,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Convenience:
-    :commit: 4a9fdd4
+    :commit: 0b09b1e
     :git: https://github.com/keeshux/convenience
   TunnelKit:
     :commit: 735c1fd
@@ -55,7 +55,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Convenience:
-    :commit: 4a9fdd4
+    :commit: 0b09b1e
     :git: https://github.com/keeshux/convenience
   TunnelKit:
     :commit: 735c1fd
@@ -63,12 +63,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
-  Convenience: 230739dd640bb826b640765d93715744721726be
+  Convenience: c805c2aff569ff735c5d69c2c2b7a9bd110fa507
   OpenSSL-Apple: 07d3f68add280b474278320232fb89625dd29fe9
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftyBeaver: a1f5691458561414bcfab51874b2b7445451602b
   TunnelKit: 1733ed87934deb57edc7aa5f4b25185bf302a7d4
 
-PODFILE CHECKSUM: 83a8ef0ea2345ea7c5d9f3893e3fd7a89c7bfdfe
+PODFILE CHECKSUM: 9074a99ba18c70b138eee5e9236de666de79ec87
 
 COCOAPODS: 1.9.1
