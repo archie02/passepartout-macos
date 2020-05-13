@@ -10,18 +10,18 @@
 
 # sdk "iphoneos9.0"
 
-#build_target = ENV["TARGET"]
-#stage_build_path = "#{ENV["BUILD_PATH"]}/#{build_target}"
-#stage_artifacts_path = "#{ENV["DIST_PATH"]}/#{build_target}"
+build_target = ENV["TARGET"]
+stage_build_path = "#{ENV["BUILD_PATH"]}/#{build_target}"
+stage_artifacts_path = "#{ENV["DIST_PATH"]}/#{build_target}"
 
-#derived_data_path stage_build_path
-#buildlog_path stage_build_path
-#build_path stage_build_path
-#output_directory stage_artifacts_path
-#output_name ENV["APP_NAME"]
+derived_data_path stage_build_path
+buildlog_path stage_build_path
+build_path stage_build_path
+output_directory stage_artifacts_path
+output_name ENV["APP_NAME"]
 
 clean true
 silent false
 include_bitcode false
 skip_profile_detection true
-#skip_package_pkg true
+skip_package_pkg true
