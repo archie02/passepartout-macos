@@ -10,10 +10,12 @@ USE WITH MULTIPLE PROVIDERS
 
 Passepartout offers presets for major VPN providers:
 
+- Hide.me
 - Mullvad
 - NordVPN
 - Private Internet Access
 - ProtonVPN
+- TorGuard
 - TunnelBear
 - VyprVPN
 - Windscribe

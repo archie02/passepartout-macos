@@ -239,6 +239,10 @@ internal enum L10n {
         internal enum Guidance {
           internal enum Footer {
             internal enum Infrastructure {
+              /// Use your %@ website credentials.
+              internal static func hideme(_ p1: String) -> String {
+                return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.hideme", p1)
+              }
               /// Use your %@ website credentials. Your username is usually numeric (without spaces).
               internal static func mullvad(_ p1: String) -> String {
                 return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.mullvad", p1)
@@ -254,6 +258,10 @@ internal enum L10n {
               /// Find your %@ credentials in the "Account > OpenVPN / IKEv2 Username" section of the website.
               internal static func protonvpn(_ p1: String) -> String {
                 return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.protonvpn", p1)
+              }
+              /// Use your %@ website credentials. Your username is usually your e-mail.
+              internal static func torguard(_ p1: String) -> String {
+                return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.torguard", p1)
               }
               /// Use your %@ website credentials. Your username is usually your e-mail.
               internal static func tunnelbear(_ p1: String) -> String {
@@ -992,6 +1000,8 @@ internal enum L10n {
         internal static let network = L10n.tr("Core", "vpn.errors.network")
         /// Missing routing
         internal static let routing = L10n.tr("Core", "vpn.errors.routing")
+        /// Server shutdown
+        internal static let shutdown = L10n.tr("Core", "vpn.errors.shutdown")
         /// Timeout
         internal static let timeout = L10n.tr("Core", "vpn.errors.timeout")
         /// TLS failed
