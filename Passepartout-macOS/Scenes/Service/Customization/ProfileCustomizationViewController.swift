@@ -88,8 +88,8 @@ class ProfileCustomizationContainerViewController: NSViewController {
         buttonOK.title = L10n.Core.Global.ok
         buttonCancel.title = L10n.Core.Global.cancel
         
-        pendingAddress = (profile as? ProviderConnectionProfile)?.manualAddress
-        pendingProtocol = (profile as? ProviderConnectionProfile)?.manualProtocol
+        pendingAddress = (profile as? ProviderConnectionProfile)?.customAddress
+        pendingProtocol = (profile as? ProviderConnectionProfile)?.customProtocol
         pendingPreset = (profile as? ProviderConnectionProfile)?.preset
         pendingTrustedNetworks = profile?.trustedNetworks
         pendingParameters = (profile as? HostConnectionProfile)?.parameters.sessionConfiguration.builder()
@@ -114,14 +114,13 @@ class ProfileCustomizationContainerViewController: NSViewController {
             if let pending = pendingPreset {
                 providerProfile.presetId = pending.id
             }
-            providerProfile.manualAddress = pendingAddress
-            providerProfile.manualProtocol = pendingProtocol
         } else if let hostProfile = profile as? HostConnectionProfile, let pendingParameters = pendingParameters {
             var builder = hostProfile.parameters.builder()
             builder.sessionConfiguration = pendingParameters.build()
             hostProfile.parameters = builder.build()
         }
-        
+        profile?.customAddress = pendingAddress
+        profile?.customProtocol = pendingProtocol
         profile?.trustedNetworks = pendingTrustedNetworks
         
         if let choices = pendingChoices {

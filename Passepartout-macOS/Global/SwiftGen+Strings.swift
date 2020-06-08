@@ -259,7 +259,7 @@ internal enum L10n {
               internal static func protonvpn(_ p1: String) -> String {
                 return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.protonvpn", p1)
               }
-              /// Use your %@ website credentials. Your username is usually your e-mail.
+              /// Use your %@ service credentials, which may differ from website credentials.
               internal static func torguard(_ p1: String) -> String {
                 return L10n.tr("Core", "account.sections.guidance.footer.infrastructure.torguard", p1)
               }
@@ -596,13 +596,13 @@ internal enum L10n {
           /// Make a donation
           internal static let caption = L10n.tr("Core", "organizer.cells.donate.caption")
         }
+        internal enum GithubSponsors {
+          /// Support me on GitHub
+          internal static let caption = L10n.tr("Core", "organizer.cells.github_sponsors.caption")
+        }
         internal enum JoinCommunity {
           /// Join community
           internal static let caption = L10n.tr("Core", "organizer.cells.join_community.caption")
-        }
-        internal enum Patreon {
-          /// Support me on Patreon
-          internal static let caption = L10n.tr("Core", "organizer.cells.patreon.caption")
         }
         internal enum Profile {
           internal enum Value {

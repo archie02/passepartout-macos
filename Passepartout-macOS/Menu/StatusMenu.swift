@@ -113,21 +113,21 @@ class StatusMenu: NSObject {
         let itemCommunity = NSMenuItem(title: L10n.Core.Organizer.Cells.JoinCommunity.caption.asContinuation, action: #selector(joinCommunity), keyEquivalent: "")
         let itemReview = NSMenuItem(title: L10n.Core.Organizer.Cells.WriteReview.caption.asContinuation, action: #selector(writeReview), keyEquivalent: "")
         let itemDonate = NSMenuItem(title: L10n.Core.Organizer.Cells.Donate.caption.asContinuation, action: #selector(showDonations), keyEquivalent: "")
-//        let itemPatreon = NSMenuItem(title: L10n.Core.Organizer.Cells.Patreon.caption.asContinuation, action: #selector(seePatreon), keyEquivalent: "")
+        let itemGitHubSponsors = NSMenuItem(title: L10n.Core.Organizer.Cells.GithubSponsors.caption.asContinuation, action: #selector(seeGitHubSponsors), keyEquivalent: "")
         let itemTranslate = NSMenuItem(title: L10n.Core.Organizer.Cells.Translate.caption.asContinuation, action: #selector(offerToTranslate), keyEquivalent: "")
         let itemFAQ = NSMenuItem(title: L10n.Core.About.Cells.Faq.caption.asContinuation, action: #selector(visitFAQ), keyEquivalent: "")
         let itemReport = NSMenuItem(title: L10n.Core.Service.Cells.ReportIssue.caption.asContinuation, action: #selector(reportConnectivityIssue), keyEquivalent: "")
         itemCommunity.target = self
         itemReview.target = self
         itemDonate.target = self
-//        itemPatreon.target = self
+        itemGitHubSponsors.target = self
         itemTranslate.target = self
         itemFAQ.target = self
         itemReport.target = self
         menuSupport.addItem(itemDonate)
         menuSupport.addItem(itemCommunity)
         menuSupport.addItem(.separator())
-//        menuSupport.addItem(itemPatreon)
+        menuSupport.addItem(itemGitHubSponsors)
 //        menuSupport.addItem(itemTranslate)
         menuSupport.addItem(itemReview)
         menuSupport.addItem(.separator())
@@ -200,7 +200,7 @@ class StatusMenu: NSObject {
             // automatic
             let itemEndpointAutomatic = NSMenuItem(title: L10n.Core.Endpoint.Cells.AnyProtocol.caption, action: #selector(connectToEndpoint(_:)), keyEquivalent: "")
             itemEndpointAutomatic.target = self
-            if providerProfile.manualProtocol == nil {
+            if providerProfile.customProtocol == nil {
                 itemEndpointAutomatic.state = .on
             }
             menuEndpoint.addItem(itemEndpointAutomatic)
@@ -209,7 +209,7 @@ class StatusMenu: NSObject {
                 let item = NSMenuItem(title: proto.description, action: #selector(connectToEndpoint(_:)), keyEquivalent: "")
                 item.representedObject = proto
                 item.target = self
-                if providerProfile.manualProtocol == proto {
+                if providerProfile.customProtocol == proto {
                     item.state = .on
                 }
                 menuEndpoint.addItem(item)
@@ -323,7 +323,7 @@ class StatusMenu: NSObject {
         guard let profile = service.activeProfile as? ProviderConnectionProfile else {
             return
         }
-        profile.manualProtocol = item.representedObject as? EndpointProtocol
+        profile.customProtocol = item.representedObject as? EndpointProtocol
         vpn.reconnect(completionHandler: nil)
 
         // update menu
@@ -343,8 +343,8 @@ class StatusMenu: NSObject {
         // TODO
     }
 
-    @objc private func seePatreon() {
-        NSWorkspace.shared.open(AppConstants.URLs.patreon)
+    @objc private func seeGitHubSponsors() {
+        NSWorkspace.shared.open(AppConstants.URLs.githubSponsors)
     }
 
     @objc private func offerToTranslate() {
