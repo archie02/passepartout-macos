@@ -31,14 +31,6 @@ extension AppConstants {
         static let eventCount = 10
     }
 
-    struct Flags {
-        static var isMockVPN = false {
-            didSet {
-                VPN.isMockVPN = isMockVPN
-            }
-        }
-    }
-
     struct InApp {
         static let limitedNumberOfHosts = 2
     }

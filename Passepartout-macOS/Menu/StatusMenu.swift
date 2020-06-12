@@ -65,7 +65,7 @@ class StatusMenu: NSObject {
         super.init()
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: .VPNDidChangeStatus, object: nil)
+        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: VPN.didChangeStatus, object: nil)
     }
     
     deinit {

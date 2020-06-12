@@ -25,6 +25,7 @@
 
 import Cocoa
 import PassepartoutCore
+import TunnelKit
 
 class DebugLogViewController: NSViewController {
     @IBOutlet private weak var labelExchangedCaption: NSTextField!
@@ -82,8 +83,8 @@ class DebugLogViewController: NSViewController {
         buttonShare.image = NSImage(named: NSImage.shareTemplateName)
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(vpnDidPrepare), name: .VPNDidPrepare, object: nil)
-        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: .VPNDidChangeStatus, object: nil)
+        nc.addObserver(self, selector: #selector(vpnDidPrepare), name: VPN.didPrepare, object: nil)
+        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: VPN.didChangeStatus, object: nil)
         nc.addObserver(self, selector: #selector(serviceDidUpdateDataCount), name: ConnectionService.didUpdateDataCount, object: nil)
 
         if vpn.isPrepared {

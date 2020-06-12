@@ -138,8 +138,8 @@ class ServiceViewController: NSViewController {
         buttonAccount.title = L10n.Core.Account.title.asContinuation
 
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: .VPNDidChangeStatus, object: nil)
-        nc.addObserver(self, selector: #selector(vpnDidReinstall), name: .VPNDidReinstall, object: nil)
+        nc.addObserver(self, selector: #selector(vpnDidUpdate), name: VPN.didChangeStatus, object: nil)
+        nc.addObserver(self, selector: #selector(vpnDidReinstall), name: VPN.didReinstall, object: nil)
 
         vpn.profile = profile
         vpn.prepare {

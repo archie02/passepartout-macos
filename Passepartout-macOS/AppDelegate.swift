@@ -24,9 +24,9 @@
 //
 
 import Cocoa
-import SwiftyBeaver
 import PassepartoutCore
 import Convenience
+import TunnelKit
 
 // comment on release
 import AppCenter
@@ -41,8 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override init() {
         AppConstants.Log.configure()
-//        AppConstants.Flags.isMockVPN = true
         InfrastructureFactory.shared.preload()
+        VPN.shared = StandardVPNProvider(bundleIdentifier: AppConstants.App.tunnelBundleId)
         super.init()
     }
 
