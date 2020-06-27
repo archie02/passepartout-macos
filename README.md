@@ -3,7 +3,7 @@
 # [Passepartout][about-website]
 
 ![macOS 10.12+](https://img.shields.io/badge/macos-10.12+-green.svg)
-[![TunnelKit 2.0.x](https://img.shields.io/badge/tunnelkit-2.0-d69c68.svg)][dep-tunnelkit]
+[![TunnelKit 2.2](https://img.shields.io/badge/tunnelkit-2.2-d69c68.svg)][dep-tunnelkit]
 [![License GPLv3](https://img.shields.io/badge/license-GPLv3-lightgray.svg)](LICENSE)
 [![Join Reddit](https://img.shields.io/badge/discuss-Reddit-orange.svg)][about-reddit]
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fpassepartoutvpn.app%2F&via=keeshux&text=Passepartout%20is%20an%20user-friendly%2C%20open%20source%20%23OpenVPN%20client%20for%20%23iOS%20and%20%23macOS)
@@ -16,31 +16,31 @@ Passepartout is a non-official, user-friendly [OpenVPN®][openvpn] client for ma
 
 Passepartout lets you handle multiple profiles in one single place and quickly switch between them.
 
-[<img src="res/snap-home.png" width="300">](res/snap-home.png)
+<!-- [<img src="res/snap-home.png" width="300">](res/snap-home.png) -->
 
 ### Ease of use
 
 With its native look & feel, Passepartout focuses on ease of use. It does so by stripping the .ovpn flags that are today obsolete or rarely used. With good approximation, it mimics the most relevant features you will find in OpenVPN 2.4.x.
 
-[<img src="res/snap-profile.png" width="300">](res/snap-profile.png)
+<!-- [<img src="res/snap-profile.png" width="300">](res/snap-profile.png) -->
 
 ### Trusted networks
 
 Trust cellular or Wi-Fi networks to fine-grain your connectivity. You can then choose to retain a VPN connection when entering a trusted network, or prevent it completely.
 
-[<img src="res/snap-trusted.png" width="300">](res/snap-trusted.png)
+<!-- [<img src="res/snap-trusted.png" width="300">](res/snap-trusted.png) -->
 
 ### See your connection parameters
 
 Passepartout strives for transparency, by showing a fairly detailed yet understandable resume of your connection parameters.
 
-[<img src="res/snap-parameters.png" width="300">](res/snap-parameters.png)
+<!-- [<img src="res/snap-parameters.png" width="300">](res/snap-parameters.png) -->
 
 ### Override network settings
 
 Override default gateway, DNS and proxy settings right from the app. Don't bother editing the .ovpn file or your pushed server settings. This is especially useful if you want to override your provider settings, e.g. to integrate your own DNS-based ad blocking.
 
-[<img src="res/snap-network.png" width="300">](res/snap-network.png)
+<!-- [<img src="res/snap-network.png" width="300">](res/snap-network.png) -->
 
 ### No unrequested activity
 
@@ -50,6 +50,7 @@ Passepartout is a VPN client and does absolutely nothing else without your conse
 
 Passepartout can connect to a few well-known VPN providers with an existing account:
 
+- [Hide.me][app-net-hideme]
 - [Mullvad][app-net-mullvad]
 - [NordVPN][app-net-nordvpn]
 - [Private Internet Access][app-net-pia]
@@ -153,6 +154,7 @@ Website: [passepartoutvpn.app][about-website]
 [openvpn]: https://openvpn.net/index.php/open-source/overview.html
 
 [app-api]: https://github.com/passepartoutvpn/passepartout-api
+[app-net-hideme]: https://member.hide.me/en/checkout?plan=new_default_prices&coupon=6CB-BDB-802&duration=24
 [app-net-mullvad]: https://mullvad.net/en/account/create/
 [app-net-nordvpn]: https://go.nordvpn.net/SH21Z
 [app-net-pia]: https://www.privateinternetaccess.com/pages/buy-vpn/
