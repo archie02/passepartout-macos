@@ -1,11 +1,11 @@
 PODS:
-  - AppCenter (3.1.1):
-    - AppCenter/Analytics (= 3.1.1)
-    - AppCenter/Crashes (= 3.1.1)
-  - AppCenter/Analytics (3.1.1):
+  - AppCenter (3.3.1):
+    - AppCenter/Analytics (= 3.3.1)
+    - AppCenter/Crashes (= 3.3.1)
+  - AppCenter/Analytics (3.3.1):
     - AppCenter/Core
-  - AppCenter/Core (3.1.1)
-  - AppCenter/Crashes (3.1.1):
+  - AppCenter/Core (3.3.1)
+  - AppCenter/Crashes (3.3.1):
     - AppCenter/Core
   - Convenience/InApp (0.0.2)
   - Convenience/Misc (0.0.2)
@@ -14,7 +14,7 @@ PODS:
   - Convenience/WebServices (0.0.2):
     - SwiftyBeaver
   - OpenSSL-Apple (1.1.1g.6)
-  - SSZipArchive (2.2.2)
+  - SSZipArchive (2.2.3)
   - SwiftyBeaver (1.9.1)
   - TunnelKit/AppExtension (2.3.0):
     - SwiftyBeaver
@@ -37,9 +37,9 @@ DEPENDENCIES:
   - Convenience/Reviewer (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
   - Convenience/WebServices (from `https://github.com/keeshux/convenience`, commit `0b09b1e`)
   - SSZipArchive
-  - TunnelKit/Extra/LZO (from `https://github.com/passepartoutvpn/tunnelkit`, commit `50d3b41`)
-  - TunnelKit/Manager (from `https://github.com/passepartoutvpn/tunnelkit`, commit `50d3b41`)
-  - TunnelKit/Protocols/OpenVPN (from `https://github.com/passepartoutvpn/tunnelkit`, commit `50d3b41`)
+  - TunnelKit/Extra/LZO (from `https://github.com/passepartoutvpn/tunnelkit`, commit `683617d`)
+  - TunnelKit/Manager (from `https://github.com/passepartoutvpn/tunnelkit`, commit `683617d`)
+  - TunnelKit/Protocols/OpenVPN (from `https://github.com/passepartoutvpn/tunnelkit`, commit `683617d`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -53,7 +53,7 @@ EXTERNAL SOURCES:
     :commit: 0b09b1e
     :git: https://github.com/keeshux/convenience
   TunnelKit:
-    :commit: 50d3b41
+    :commit: 683617d
     :git: https://github.com/passepartoutvpn/tunnelkit
 
 CHECKOUT OPTIONS:
@@ -61,17 +61,17 @@ CHECKOUT OPTIONS:
     :commit: 0b09b1e
     :git: https://github.com/keeshux/convenience
   TunnelKit:
-    :commit: 50d3b41
+    :commit: 683617d
     :git: https://github.com/passepartoutvpn/tunnelkit
 
 SPEC CHECKSUMS:
-  AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
+  AppCenter: 76ecf7e959a68e36b0fd314e8dc5897660214423
   Convenience: c805c2aff569ff735c5d69c2c2b7a9bd110fa507
   OpenSSL-Apple: c9c1b9c5b2b1fc4e1758fc5f0836b58ae7fd8183
-  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SwiftyBeaver: a1f5691458561414bcfab51874b2b7445451602b
   TunnelKit: a4fa4ecc6fc2b9fa74c38609c0e8fc4441d9672e
 
-PODFILE CHECKSUM: 5afaf3bad645658f3f2afc84a1b652bf95f42c2f
+PODFILE CHECKSUM: 4ff424715d26078fdc6557cd9326641e15eacad8
 
 COCOAPODS: 1.9.1
